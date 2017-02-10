@@ -1,6 +1,6 @@
-![oreilly-logo](./images/oreilly.png)
+![oreilly-logo](./images/oreilly.png) ![k8s](./images/k8s.png)
 
-# Kubernetes Training ![k8s](./images/k8s.png)
+# Kubernetes Training
 
 This repository contains instructions and examples for the O'Reilly Live Online Training for Kubernetes.
 Dates are listed in the [O'Reilly Live Online](https://www.safaribooksonline.com/live-training/) training schedule.
