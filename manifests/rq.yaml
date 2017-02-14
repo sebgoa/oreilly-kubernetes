@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: oreilly
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: counts
+  namespace: oreilly
+spec:
+  hard:
+    pods: "1"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+  namespace: oreilly
+spec:
+  containers:
+  - image: redis:3.2
+    imagePullPolicy: IfNotPresent
+    name: mysql
+  restartPolicy: Always

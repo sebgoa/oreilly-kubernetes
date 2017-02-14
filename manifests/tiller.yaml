@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tiller-deploy
+  namespace: default 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helm
+        name: tiller
+    spec:
+      containers:
+      - image: gcr.io/kubernetes-helm/tiller:canary
+        name: tiller
+        ports:
+        - containerPort: 44134
+          name: tiller
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /liveness
+            port: 44135
+          initialDelaySeconds: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 44135
+          initialDelaySeconds: 1
+          timeoutSeconds: 1

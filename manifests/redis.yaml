@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ghost
+  namespace: ricardo1
+spec:
+  containers:
+  - image: ghost
+    imagePullPolicy: IfNotPresent
+    name: ghost
+  restartPolicy: Always

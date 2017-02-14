@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wp
+  labels:
+    app: wp
+spec:
+  containers:
+  - image: wordpress
+    env:
+    - name: WORDPRESS_DB_PASSWORD
+      value: root
+    - name: WORDPRESS_DB_HOST
+      value: 127.0.0.1
+    imagePullPolicy: IfNotPresent
+    name: wordpress
+  - image: mysql:5.5
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: root
+    imagePullPolicy: IfNotPresent
+    name: mysql
+  restartPolicy: Always
