@@ -1,0 +1,56 @@
+kubectl get pods
+  509  kubectl get rc
+  510  kubectl get rs
+  516  kubectl create -f redis-rc.yaml 
+  517  kubectl get rc
+  518  kubectl get rs
+  519  kubectl delete deployments redis 
+  520  kubectl get rs
+  521  kubectl get pods
+  522  kubectl delete pods busybox
+  523  kubectl delete pods multi
+  525  kubectl get pods
+  526  kubectl get rc
+  527  kubectl get rc redis -o yaml
+  528  kubectl get rc redis -o yaml | more
+  531  kubectl get rc
+  532  kubectl get pods
+  534  kubectl scale rc redis --replicas=4
+  535  kubectl get pods
+  537  kubectl get pods --show-labels
+  538  kubectl label pods redis-pt732 app=foobar
+  539  kubectl label pods --overwrite redis-pt732 app=foobar
+  540  kubectl get pods --show-labels
+  541  kubectl delete rc redis
+  542  kubectl get pods --show-labels
+  543  kubectl logs redis-pt732
+  545  kubectl create -f https://raw.githubusercontent.com/kubernetes/kubernetes/master/examples/guestbook/all-in-one/guestbook-all-in-one.yaml
+  546  kubectl get pods
+  547  kubectl exec -ti redis-master-343230949-lktfz -- redis-cli
+  549  kubectl get deployments
+  550  kubectl scale deployments redis-slave --replicas=5
+  551  kubectl get pods
+  552  kubectl exec -ti redis-master-343230949-lktfz -- redis-cli info
+  554  kubectl get pods
+  555  kubectl get svc
+  556  kubectl get services
+  557  kubectl edit svc frontend
+  558  kubectl describe svc frontend
+  560  kubectl get svc
+  561  kubectl create -f busybox.yaml 
+  562  kubectl get pods
+  563  kubectl exec -ti busybox -- nslookup frontend
+  564  kubectl exec -ti busybox -- nslookup redis-master
+  565  kubectl exec -ti busybox -- nslookup redis-slave
+  567  kubectl get endpoints
+  568  kubectl get pods
+  569  kubectl get svc frontend -o yaml
+  570  kubectl get pods --show-labels
+  572  kubectl get pods
+  573  kubectl run ghost --image=ghost
+  574  kubectl expose deployment ghost --port=2368 --type=NodePort
+  575  kubectl get pods
+  576  kubectl get svc
+  577  kubectl get pods
+  579  kubectl get svc
+  580  kubectl get endpoints

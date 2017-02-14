@@ -1,0 +1,94 @@
+gcloud container clusters create oreilly
+  644  clear
+  645  kubectl get nodes
+  646  kubectl config use-context minikube
+  647  kubectl get nodes
+  648  vi ~/.kube/config
+  649  kubectl config use-context gke_skippbox_europe-west1-b_oreilly
+  650  kubectl get nodes
+  651  kubectl config use-context minikube
+  652  kubectl get nodes
+  653  minikube ssh
+  654  clear
+  655  minikube status
+  656  kubectl get nodes
+  657  minikube dashboard
+  658  kubectl get pods
+  659  kubectl get replicasets
+  660  kubectl get deployments
+  661  kubectl scale deployments redis --replicas=5
+  662  kubectl get replicasets
+  663  kubectl get pods
+  664  kubectl scale deployments redis --replicas=2
+  665  kubectl get pods
+  666  clear
+  667  kubectl get pods
+  668  kubectl exec -ti redis-3133791336-1cgrj -- redis-cli
+  669  clear
+  670  kubectl get pods
+  671  minikube ssh
+  672  clear
+  673  kubectl get pods
+  674  redis-cli
+  675  clear
+  676  kubectl get pods
+  677  kubectl get po
+  678  kubectl get rs
+  679  kubectl get deployments
+  680  kubectl get secrets
+  681  kubectl get configmaps
+  682  kubectl get persistentvolumes
+  683  kubectl get namespaces
+  684  kubectl get services
+  685  clear
+  686  kubectl get pods
+  687  kubectl delete pods redis-3133791336-1cgrj
+  688  kubectl get pods
+  689  kubectl get pods
+  690  kubectl scale deployment redis --replicas=1
+  691  kubectl get pods
+  692  kubectl --v=99 get pods
+  693  kubectl --v=99 get svc
+  694  clear
+  695  minikube ssh
+  696  clear
+  697  kubectl get pods
+  698  kubectl get pods redis-3133791336-c37p0 -o yaml
+  699  kubectl get pods redis-3133791336-c37p0 -o yaml | more
+  700  kubectl get pods redis-3133791336-c37p0 -o json |more
+  701  kubectl get pods redis-3133791336-c37p0 -o json | jq
+  702  ls -l
+  703  clear
+  704  git remote -v
+  705  ls -l
+  706  cd manifests/
+  707  ls -l
+  708  clear
+  709  cat busybox.yaml 
+  710  kubectl create -f busybox.yaml 
+  711  kubectl get pods
+  712  kubectl get pods
+  713  kubectl exec -ti busybox
+  714  kubectl exec -ti busybox /bin/sh
+  715  clear
+  716  cat busybox.yaml 
+  717  kubectl get pods
+  718  cp busybox.yaml multi.yaml
+  719  vi multi.yaml 
+  720  kubectl create -f multi.yaml 
+  721  clear
+  722  kubectl get pods
+  723  kubectl exec -ti multi /bin/sh
+  724  kubectl exec -ti multi -- redis-cli
+  725  kubectl exec -ti multi -c redis -- redis-cli
+  726  kubectl get pods
+  727  clear
+  728  kubectl get pods
+  729  kubectl get pods --all-namespaces
+  730  kubectl create ns oreilly
+  731  kubectl get ns
+  732  vi multi.yaml 
+  733  kubectl create -f multi.yaml 
+  734  kubectl get pods --all-namespaces
+  735  vi multi.yaml 
+
