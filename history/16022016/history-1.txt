@@ -1,0 +1,196 @@
+  307  cd manifests/
+  308  ls -l
+  309  cd ingress-controller/
+  310  ls -l
+  311  more backend.yaml 
+  312  kubectl create -f backend.yaml 
+  313  clear
+  314  kubectl get pods
+  315  kubectl delete deployments game
+  316  kubectl delete deployments ghost
+  317  kubectl get pods
+  318  kubectl get pods
+  319  kubectl run game --image=runseb/2048
+  320  kubectl expose deployments game --port=80
+  321  kubectl delete svc game
+  322  kubectl expose deployments game --port=80
+  323  kubectl get svc game -o yaml
+  324  clear
+  325  kubectl get svc
+  326  kubectl get svc ghost -o json | jq -r .spec.type
+  327  kubectl get pods
+  328  kubectl get pods game-1597610132-qv0z2 | jq -r .spec.containers[0].image
+  329  kubectl get pods game-1597610132-qv0z2 | jq -r .spec.containers
+  330  kubectl get pods game-1597610132-qv0z2 | jq -r .spec
+  331  kubectl get pods game-1597610132-qv0z2 | jq -r .items[0]
+  332  kubectl get pods game-1597610132-qv0z2 | jq -r
+  333  kubectl get pods game-1597610132-qv0z2 -o json | jq -r
+  334  kubectl get pods game-1597610132-qv0z2 -o json | jq -r .spec
+  335  kubectl get pods game-1597610132-qv0z2 -o json | jq -r .spec.containers[0].image
+  336  clear
+  337  kubectl get pods
+  338  ls -l
+  339  cat game.yaml 
+  340  kubectl get svc game -o yaml
+  341  kubectl create -f game.yaml 
+  342  clear
+  343  kubectl get ingress
+  344  kubectl get pods
+  345  kubectl run mysql --image=mysql:5.5 --env=MYSQL_ROOT_PASSWORD=root 
+  346  kubectl create secret generic mysql --from-literal=MYSQL_ROOT_PASSWORD=root
+  347  kubectl get secrets
+  348  kubectl get secrets mysql -o yaml
+  349  kubectl label secret mysql foo=bar
+  350  kubectl get secrets mysql -o yaml
+  351  clear
+  352  kubectl get secrets
+  353  kubectl get pods
+  354  kubectl exec -ti mysql-3779901834-c7nc8 -- mysql -uroot -p
+  355  cd ..
+  356  ls -l
+  357  more mysql.yaml 
+  358  more mysql-secret.yaml 
+  359  kubectl get secrets
+  360  kubectl create -f mysql-secret.yaml 
+  361  kubectl get pods
+  362  clear
+  363  kubectl get pods
+  364  more mysql-secret.yaml 
+  365  kubectl describe pods mysql
+  366  more mysql-secret.yaml 
+  367  vi mysql-secret.yaml 
+  368  kubectl create -f mysql-secret.yaml 
+  369  kubectl delete pods mysql
+  370  clear
+  371  kubectl create -f mysql-secret.yaml 
+  372  kubectl get pods
+  373  kubectl get secrets mysql -o yaml
+  374  kubectl delete secret mysql
+  375  kubectl create secret generic mysql --from-literal=password=root
+  376  kubectl get pods
+  377  kubectl delete pods mysql
+  378  kubectl create -f mysql-secret.yaml 
+  379  kubectl get pods
+  380  clear
+  381  kubectl get pods
+  382  kubectl get pods mysql -o yaml
+  383  kubectl get pods mysql -o yaml | more
+  384  clear
+  385  kubectl get pods
+  386  l s-l
+  387  l s-l
+  388  ls -l
+  389  cd ingress-controller/
+  390  ls -l
+  391  more wordpress.yaml 
+  392  cd ..
+  393  ls -l
+  394  clear
+  395  kubectl get pds
+  396  kubectl get pods
+  397  kubectl delete pods mysql
+  398  kubectl get deployments
+  399  kubectl get svc
+  400  kubectl expose deployments mysql --port=3306
+  401  kubectl run wordpress --image=wordpress
+  402  kubectl expose deployments wordpress --port=80
+  403  kubectl get pds
+  404  kubectl get pods
+  405  cd ingress-controller/
+  406  ls -l
+  407  more wordpress.yaml 
+  408  kubectl create -f wordpress.yaml 
+  409  kubectl get ingress.yaml 
+  410  kubectl get ingress
+  411  kubectl delete ingress game
+  412  kubectl get ingress
+  413  clear
+  414  kubectl get ingress
+  415  kubectl get secret
+  416  kubectl get deployments
+  417  kubectl get pods
+  418  kubectl get svc
+  419  kubectl delete svc game, ghost
+  420  kubectl delete svc game ghost
+  421  kubectl get svc
+  422  kubectl get pods --watch
+  423  clear
+  424  kubectl get pods
+  425  kubectl get ingress
+  426  clear
+  427  ls -l
+  428  kubectl get pods
+  429  ls -l
+  430  more wordpress.yaml 
+  431  kubectl get ingress
+  432  kubectl get svc
+  433  kubectl get deployments
+  434  kubectl get pods
+  435  kubectl logs -f wordpress-468622735-p57t0
+  436  kubectl get pods
+  437  kubectl delete deployments wordpress
+  438  kubectl run wordpress --image=wordpress --env=WORDPRESS_DB_PASSOWRD=root --env=MYSQL_DB_HOST=mysql
+  439  kubectl get pods
+  440  kubectl get pods
+  441  kubectl get pods
+  442  kubectl get pods
+  443  kubectl edit deployments wordpress
+  444  kubectl get pods
+  445  kubectl get rs
+  446  kubectl get pods
+  447  kubectl describe pods wordpress-2537937599-zg2bt 
+  448  kubectl edit deployments wordpress
+  449  kubectl get rs
+  450  kubectl get pods
+  451  kubectl exec -ti mysql-3779901834-c7nc8 /bin/bash
+  452  clear
+  453  kubectl get pv
+  454  kubectl get persistentvolumes
+  455  kubectl get persistentvolumeclaim
+  456  kubectl get pvs
+  457  kubectl get pvc
+  458  cd ..
+  459  ls -l
+  460  more volumes.yaml 
+  461  kubectl create -f volumes.yaml 
+  462  kubectl get pods
+  463  kubectl exec -ti vol -c busy /bin/sh
+  464  kubectl exec -ti vol -c box -- ls -l /box
+  465  kubectl exec -ti vol -c box -- ls -l /box
+  466  kubectl exec -ti vol -c box /bin/sh
+  467  kubectl exec -ti vol -c busy /bin/sh
+  468  cler
+  469  clear
+  470  kubectl get pods
+  471  kubectl delete pods vol
+  472  kubectl get pods
+  473  which helm
+  474  helm init
+  475  kubectl get pods --all-namespaces
+  476  kubectl get pods --all-namespaces
+  477  helm ls
+  478  helm repo ls
+  479  helm repo list
+  480  helm install stable/minio
+  481  clear
+  482  kubectl get pods
+  483  kubectl get secrets
+  484  kubectl get svc
+  485  kubectl get deployments
+  486  kubectl get pvc
+  487  kubectl get pv
+  488  kubectl describe svc busted-ocelot-minio
+  489  kubectl edit svc busted-ocelot-minio
+  490  kubectl describe svc busted-ocelot-minio
+  491  clear
+  492  kubectl get pv
+  493  clear
+  494  ipython
+  495  ls -l
+  496  cd ..
+  497  ls -l
+  498  cd scripts/
+  499  ls -l
+  500  more create_pod.py 
+  501  ./create_pod.py 
+  502  kubectl get pods

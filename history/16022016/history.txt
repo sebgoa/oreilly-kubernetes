@@ -1,0 +1,99 @@
+minikube status
+   62  kubectl get pods
+   63  kubectl get nodes
+   64  kubectl run game --image=runseb/2048
+   65  kubectl get deployments
+   66  kubectl get rs
+   67  kubectl get rs game-1597610132 -o yaml |more
+   68  cler
+   69  clear
+   70  kubectl get pods --show-labels
+   71  kubectl expose deployments game --port=80 --type=NodePort
+   72  kubectl get svc
+   73  kubectl describe svc game
+   74  minikube ssh
+   75  clear
+   76  minikube
+   77  minikube ip
+   78  minikube service game
+   79  clear
+   80  kubectl run ghost --image=ghost --record
+   81  kubectl get deployments
+   82  kubectl get deployments ghost -o yaml | more
+   83  clear
+   84  kubectl rollout history deployments ghost
+   85  kubectl get pods
+   86  kubectl expose deployment/ghost --port=2368 --type=NodePort
+   87  kubectl get svc
+   88  kubectl get pods
+   89  minikube service ghost
+   90  kubectl set image deployment/ghost ghost=ghost:09
+   91  kubectl get pods
+   92  kubectl get pods
+   93  kubectl rollout history deployment/ghost
+   94  kubectl rollout history deployment/ghost undo
+   95  kubectl rollout history deployments ghost undo
+   96  kubectl rollout history undo deployments ghost
+   97  clear
+   98  kubectl get pods
+   99  kubectl get pods --watch
+  100  kubectl rollout history deployments ghost
+  101  kubectl get rs
+  102  kubectl rollout undo deployment/ghost
+  103  kubectl get pods
+  104  kubectl scale deployment ghost --replicas=5
+  105  kubectl get pods
+  106  kubectl get pods
+  107  kubectl get pods
+  108  kubectl get pods
+  109  kubectl rollout history deployment/ghost
+  110  kubectl set image deployment/ghost ghost=ghost:0.9
+  111  kubectl get pods
+  112  kubectl get pods --watch
+  113  kubectl get pods
+  114  kubectl get pods --watch
+  115  clear
+  116  kubectl get rs
+  117  kubectl get rs
+  118  kubectl get pods
+  119  kubectl get deployment ghost -o yaml |more
+  120  clear
+  121  kubectl get pods
+  122  kubectl get pods ghost-3487275284-6tr23 -o yaml | more
+  123  clear
+  124  kubectl get rs
+  125  kubectl rollout history deployment/ghost
+  126  kubectl rollout deployment/ghost --to-revision=3
+  127  kubectl rollout --help
+  128  clear
+  129  kubectl rollout history --help
+  130  kubectl rollout history deployment/ghost
+  131  kubectl rollout history deployment/ghost --revision=3
+  132  clear
+  133  kubectl get rs --watch
+  134  kubectl get rs --watch
+  135  kubectl rollout history deployment/ghost
+  136  kubectl get rs --watch
+  137  kubectl rollout history deployment/ghost --revision=3
+  138  clear
+  139  kubectl get rs --watch
+  140  kubectl get pods
+  141  kubectl rollout history deployment/ghost
+  142  kubectl rollout history --help
+  143  kubectl rollout undo --help
+  144  kubectl rollout undo deployment/ghost --to-revision=3
+  145  clear
+  146  kubectl get rs --watch
+  147  kubectl get pods
+  148  kubectl get pods ghost-943298627-8p64g -o yaml |more
+  149  kubectl rollout --help
+  150  minikube service ghost
+  151  clear
+  152  kubectl edit deployments ghost
+  153  kubectl rollout history deployments ghost
+  154  kubectl get pods
+  155  kubectl get svc
+  156  kubectl edit svc ghost
+  157  kubectl get rs
+  158  kubectl completion --help
+  159  kubectl completion bash
