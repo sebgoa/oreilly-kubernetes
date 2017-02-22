@@ -1,0 +1,152 @@
+clear
+  304  which minikube
+  305  minikube version
+  306  minikube start
+  307  kubectl get nodes
+  308  clear
+  309  kubectl get nodes
+  310  minikube dashboard
+  311  kubectl get pods
+  312  kubectl get deployments
+  313  kubectl get replicasets
+  314  kubectl get pods
+  315  kubectl logs redis-3133791336-392v8
+  316  clear
+  317  kubectl exec -ti redis-3133791336-392v8 -- redis-cli
+  318  clear
+  319  minikube ssh
+  320  cler
+  321  clear
+  322  kubectl get pods
+  323  kubectl get pods redis-3133791336-392v8 -o yaml
+  324  clesr
+  325  clear
+  326  ls -l
+  327  vi foobar.yaml
+  328  kubectl create -f foobar.yaml
+  329  kubectl get pods
+  330  kubectl get pods
+  331  kubectl get pods
+  332  kubectl scale deployments redis --replicas=5
+  333  kubectl get pods
+  334  kubectl get pods
+  335  kubectl scale deployments redis --replicas=2
+  336  kubectl get pods
+  337  kubectl delete pods foobar
+  338  kubectl get pods
+  339  clear
+  340  kubectl get pods
+  341  kubectl get pods
+  342  kubectl get pods --watch
+  343  kubectl get pods
+  344  kubectl delete pods redis-3133791336-392v8
+  345  kubectl get pods
+  346  kubectl get pods
+  347  clear
+  348  minikube ssh
+  349  clear
+  350  kubectl get ns
+  351  kubectl get namespaces
+  352  kubectl get pods --all-namespaces
+  353  kubectl get pods
+  354  kubectl get pods --all-namespaces
+  355  kubectl get deployments --all-namespaces
+  356  kubectl get rc --all-namespaces
+  357  clear
+  358  kubectl get ns
+  359  kubectl create ns foobar
+  360  kubectl get ns
+  361  vi foobar.yaml 
+  362  kubectl create -f foobar.yaml 
+  363  kubectl get pods
+  364  kubectl get pods --all-namespaces
+  365  kubectl create -f foobar.yaml 
+  366  vi foobar.yaml 
+  367  kubectl create -f foobar.yaml 
+  368  clear
+  369  kubectl get pods --all-namespaces
+  370  kubectl get nodes
+  371  kubectl get nodes minikube -o yaml
+  372  minikube ssh
+  373  clear
+  374  ls -l
+  375  kubectl --v=99 get pods
+  376  kubectl --v=99 get pods --namespace=foobar
+  377  clear
+  378  kubectl create -f https://raw.githubusercontent.com/kubernetes/kubernetes/master/examples/guestbook/all-in-one/guestbook-all-in-one.yaml
+  379  kubectl get pods
+  380  kubectl get pods
+  381  kubectl get deployments
+  382  kubectl delete deployments redis
+  383  kubectl get deployments
+  384  clear
+  385  kubectl get pods
+  386  kubectl get svc
+  387  kubectl get services
+  388  kubectl edit svc frontend
+  389  kubectl get services
+  390  kubectl get pods
+  391  kubectl get pods --watch
+  392  kubectl get pods
+  393  kubectl get endpoints
+  394  kubectl get pods
+  395  minikube service frontend
+  396  clear
+  397  kubectl scale deployments redis-slave --replicas=5
+  398  kubectl get pods
+  399  kubectl exec -ti redis-master-343230949-816xl -- redis-cli info
+  400  clear
+  401  kubectl get pods
+  402  kubectl get pods --show-labels
+  403  kubectl get pods -l tier=backend
+  404  kubectl get pods -Ltier
+  405  kubectl get pods -l tier=frontend
+  406  clear
+  407  kubectl get pods
+  408  kubectl label pod foobar oreilly=rocks
+  409  kubectl get pods -l oreilly
+  410  kubectl get pods -Loreilly
+  411  clear
+  412  kubectl get rs
+  413  kubectl get rs frontend-88237173 -o yaml | more
+  414  kubectl get pods
+  415  kubectl label pod frontend-88237173-5l21n tier=broken
+  416  kubectl label pod frontend-88237173-5l21n tier=broken --overwrite
+  417  kubectl get pods
+  418  kubectl get pods -Ltier
+  419  kubectl get pods -l tier=broken
+  420  clear
+  421  kubectl get pods
+  422  kubectl delete pods frontend-88237173-5l21n
+  423  kubectl get pods
+  424  kubectl scale deployments redis-slave --replicas=2
+  425  clear
+  426  kubectl get pods
+  427  kubectl get svc
+  428  kubectl get svc frontend -o json
+  429  kubectl get svc frontend -o json | jq -r
+  430  kubectl get svc frontend -o json | jq -r .spec.clusterIP
+  431  kubectl get endpoints
+  432  kubectl get pods -l app=guestbook -l tier=frontend
+  433  kubectl get pods -l app=guestbook -l tier=frontend -o json | jq -r .spec.podIP
+  434  kubectl get pods -l app=guestbook -l tier=frontend -o json
+  435  kubectl get pods -l app=guestbook -l tier=frontend -o json | jq -r .spec.status.podIP
+  436  clear
+  437  kubectl get pods -l app=guestbook -l tier=frontend -o json | jq -r .items.spec.status.podIP
+  438  kubectl get pods -l app=guestbook -l tier=frontend -o json
+  439  kubectl get pods -l app=guestbook -l tier=frontend -o json | grep podIP
+  440  kubectl get endpoints
+  441  kubectl get pods -l app=guestbook -l tier=frontend -o json | jq -r .items[0].status.podIP
+  442  clear
+  443  ls -l
+  444  kubectl get pods
+  445  kubectl get pods -l app=guestbook -l tier=frontend -o json | jq -r .items[].status.podIP
+  446  kubectl run busybox --image=busybox --command sleep 3600
+  447  kubectl get pods
+  448  kubectl get pods
+  449  kubectl get pods
+  450  clear
+  451  kubectl get pods
+  452  kubectl exec -ti busybox-1418042613-qn8m6 -- nslookup frontend
+  453  kubectl get svc
+  454  kubectl exec -ti busybox-1418042613-qn8m6 -- nslookup redis-master
