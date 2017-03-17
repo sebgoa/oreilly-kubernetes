@@ -1,4 +1,9 @@
 apiVersion: v1
-kind: Namespace
+kind: Pod
 metadata:
-  name: barfoo
+  name: foobar
+  namespace: default
+spec:
+  containers:
+    - image: ghost
+      name: ghost
