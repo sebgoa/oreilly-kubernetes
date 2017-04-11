@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foobar
+spec:
+  containers:
+  - name: redis
+    image: redis
+  nodeSelector:
+    bar: foo

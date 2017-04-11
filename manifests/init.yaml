@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-demo
+  annotations:
+    pod.beta.kubernetes.io/init-containers: '[
+        {
+            "name": "install",
+            "image": "python:2.7-alpine",
+            "command": ["pip", "install", "--prefix=/pythonpath", "-r", "/requirements/requirements.txt"],
+            "volumeMounts": [
+                {
+                    "name": "pythonpath",
+                    "mountPath": "/pythonpath"
+                },
+		{
+		    "name": "requirements",
+                    "mountPath": "/requirements"
+		}
+            ]
+        }
+    ]'
+spec:
+  containers:
+  - name: python
+    image: python:2.7-alpine
+    env:
+      - name: PYTHONPATH
+        value: /opt/kubeless/pythonpath/lib/python2.7/site-packages
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - name: pythonpath
+      mountPath: /opt/kubeless/pythonpath
+  dnsPolicy: Default
+  volumes:
+  - name: pythonpath
+    emptyDir: {}
+  - name: requirements
+    configMap:
+      name: requirements

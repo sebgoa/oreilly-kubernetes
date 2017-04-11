@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+spec:
+  schedulerName: foobar
+  containers:
+  - name: redis
+    image: redis

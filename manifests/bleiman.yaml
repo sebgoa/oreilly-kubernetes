@@ -11,7 +11,7 @@ spec:
       - sleep
       - "3600"
     volumeMounts:
-    - mountPath: /bleiman
+    - mountPath: /kubecon
       name: test
     imagePullPolicy: IfNotPresent
     name: busybox
@@ -19,4 +19,4 @@ spec:
   volumes:
   - name: test
     configMap:
-      name: bleiman
+      name: foobar
