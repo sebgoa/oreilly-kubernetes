@@ -1,0 +1,168 @@
+    7  which gcloud
+    8  gcloud container clusters list
+    9  gcloud container clusters create foobar
+   10  clear
+   11  gcloud container clusters list
+   12  kubectl get nodes
+   13  kubectl config view
+   14  kubectl config view | more
+   15  clear
+   16  kubectl config use-context minikube
+   17  kubectl get nodes
+   18  kubectl config use-context gke_skippbox_europe-west1-b_foobar
+   19  kubectl get nodes
+   20  clear
+   25  kubectl get nodes
+   26  kubectl config use-context minikube
+   27  kubectl get nodes
+   28  minikube version
+   29  minikube dashboard
+   30  clear
+   31  kubectl get pods
+   32  kubectl get deployments
+   33  kubectl get replicasets
+   34  kubectl logs redis-3215927958-kqvfb
+   35  minikube ssh
+   36  clear
+   37  kubectl get pods
+   38  kubectl scale deployments redis --replicas=4
+   39  kubectl get pods
+   40  kubectl get pods
+   41  kubectl delete pods redis-3215927958-tqp1q
+   42  kubectl get pods
+   43  kubectl scale deployments redis --replicas=2
+   44  kubectl scale deployments redis --replicas=0
+   45  clear
+   46  kubectl get pods
+   47  kubectl get deployments
+   48  kubectl scale deployments redis --replicas=1
+   49  kubectl get deployments
+   50  kubectl get pods
+   51  clear
+   52  ls -l
+   53  vi foo.yaml
+   54  kubectl create -f foo.yaml 
+   55  kubectl get pods
+   56  more foo.yaml 
+   57  kubectl get redis-3215927958-h243b -o yaml | more
+   58  kubectl get pods redis-3215927958-h243b -o yaml | more
+   59  clear
+   60  more foo.yaml 
+   61  kubectl get pods
+   62  vi foo.yaml 
+   63  kubectl apply -f foo.yaml 
+   64  kubectl get pods
+   65  kubectl delete pods foobar
+   66  kubectl apply -f foo.yaml 
+   67  clear
+   68  kubectl get pods
+   69  kubectl get pods
+   70  kubectl get pods
+   71  kubectl apply -f foo.yaml 
+   72  kubectl get pods
+   73  clear
+   74  kubectl get pods
+   75  kubectl --v=99 get pods | more
+   76  kubectl --v=99 delete pods foobar | more
+   77  clear
+   78  minikube ssh
+   79  clear
+   80  kubectl get pods
+   81  kubectl exec -ti redis-3215927958-h243b -- /bin/bash
+   82  which redis-cli
+   83  which brew
+   84  clear
+   85  kubectl get namespace
+   86  kubectl get ns
+   87  kubectl get pods --all-namespaces
+   88  more foo.yaml 
+   89  kubectl apply -f foo.yaml 
+   90  kubectl get pods
+   91  kubectl get pods
+   92  kubectl create -f foo.yaml 
+   93  clear
+   94  kubectl create ns oreilly
+   95  kubectl get ns
+   96  vi foo.yaml 
+   97  kubectl create -f foo.yaml 
+   98  kubectl get pods
+   99  kubectl get pods --all-namespaces
+  100  minikube ssh
+  101  clear
+  102  kubectl get pods
+  103  ls -l
+  104  cd manifests/
+  105  ls -l
+  106  more rq.yaml 
+  107  clear
+  108  kubectl create -f https://raw.githubusercontent.com/kubernetes/kubernetes/master/examples/guestbook/all-in-one/guestbook-all-in-one.yaml
+  109  kubectl get pods
+  110  kubectl get deployments
+  111  kubectl get service
+  112  clear
+  113  kubectl get pods
+  114  ls -l
+  115  git remote -v
+  116  more rq.yaml 
+  117  kubectl get pods --namespace oreilly
+  118  vi quota.yaml
+  119  kubectl create -f quota.yaml 
+  120  kubectl get resourcequotas
+  121  kubectl get resourcequotas --namespace oreilly
+  122  vi test.yaml
+  123  kubectl get pods --namespace oreilly
+  124  kubectl create -f test.yaml 
+  125  kubectl edit resourcequotas counts --namespace oreilly
+  126  kubectl create -f test.yaml 
+  127  kubectl get pods --namespace oreilly
+  128  kubectl get pods
+  129  kubectl get svc
+  130  kubectl edit svc frontend
+  131  kubectl get svc
+  132  minikube ip
+  133  kubectl run ghost --image=ghost
+  134  kubectl get pods
+  135  kubectl get deployments
+  136  kubectl expose deployment ghost --port=2368 --type=NodePort
+  137  kubectl get svc
+  138  clear
+  139  kubectl get pods
+  140  kubectl get pods foobar -o yaml
+  141  clear
+  142  kubectl get pods
+  143  kubectl get pods --show-labels
+  144  kubectl get pods -Lrun
+  145  kubectl get pods -l run=ghost
+  146  kubectl scale deployments ghost --replicas=3
+  147  kubectl get pods -l run=ghost
+  148  clear
+  149  kubectl get deployments
+  150  kubectl get rs
+  151  kubectl get rs ghost-2663835528 -o yaml
+  152  kubectl get pods
+  153  kubectl get pods -l run=ghost
+  154  kubectl label pods ghost-2663835528-1269w run=ghost-not-working --overwrite
+  155  kubectl get pods -Lrun
+  156  clear
+  157  kubectl get svc
+  158  kubectl get svc ghost -o yaml
+  159  kubectl get endpoints
+  160  kubectl scale deployments ghost --replicas=1
+  161  kubectl get pods -l run=ghost
+  162  kubectl get endpoints
+  163  clear
+  164  clear
+  165  kubectl get pods
+  166  kubectl delete ns oreilly
+  167  kubectl delete deployments frontend, redis-master, redis-slave
+  168  kubectl delete deployments frontend redis-master redis-slave
+  169  kubectl get pods
+  170  kubectl delete deployment ghost
+  171  kubectl delete pods foobar
+  172  kubectl get ns
+  173  kubectl get pods
+  174  kubectl delete deployment redis
+  175  kubectl get pods
+  176  kubectl get pods
+  177  kubectl get svc
+  178  kubectl delete svc frontend ghost redis-master redis-slave

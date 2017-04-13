@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+  namespace: oreilly
+spec:
+  containers:
+  - image: redis:3.2
+    imagePullPolicy: IfNotPresent
+    name: redis
+  restartPolicy: Always
