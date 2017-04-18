@@ -6,5 +6,3 @@ spec:
   containers:
   - name: redis
     image: redis
-  nodeSelector:
-    bar: foo

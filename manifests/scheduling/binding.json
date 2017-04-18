@@ -2,7 +2,7 @@
   "apiVersion": "v1",
   "kind": "Binding",
   "metadata": {
-    "name": "redis"
+    "name": "foobar-sched"
   },
   "target": {
     "apiVersion": "v1",
