@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foobar
+  namespace: oreilly
+spec:
+  containers:
+  - image: nginx
+    name: nginx

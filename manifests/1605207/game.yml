@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: game
+  namespace: default
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: game
+      namespace: default
+      labels:
+        app: game
+    spec:
+      containers:
+        - image: runseb/2048
+          name: game
