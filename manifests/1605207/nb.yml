@@ -1,0 +1,6 @@
+apiVersion: cool.io/v1
+kind: NoteBook
+metadata:
+  name: crazy
+  labels:
+    kubernetes: rocks

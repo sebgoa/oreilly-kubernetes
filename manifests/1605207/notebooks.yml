@@ -1,0 +1,7 @@
+apiVersion: extensions/v1beta1
+kind: ThirdPartyResource
+metadata:
+  name: note-book.cool.io
+description: "A notebook"
+versions:
+- name: v1

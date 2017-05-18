@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vol
+  labels:
+    app: vol
+spec:
+  containers:
+  - image: busybox
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - mountPath: /busy
+      name: test
+    imagePullPolicy: IfNotPresent
+    name: busy
+  - image: busybox
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - mountPath: /box
+      name: test
+    imagePullPolicy: IfNotPresent
+    name: box
+  restartPolicy: Always
+  volumes:
+  - name: test
+    emptyDir: {}
