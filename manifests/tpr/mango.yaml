@@ -1,0 +1,7 @@
+apiVersion: extensions/v1beta1
+kind: ThirdPartyResource
+metadata:
+  name: mango-fruit.fruit.com
+description: "A mango resource"
+versions:
+- name: v1

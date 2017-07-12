@@ -10,9 +10,9 @@ spec:
     - sleep
     - "3600"
     volumeMounts:
-    - mountPath: /oreilly
-      name: hostpath
+    - mountPath: /bitnami
+      name: foobar
   volumes:
-  - name: hostpath
-    hostPath:
-      path: /data
+  - name: foobar
+    persistentVolumeClaim:
+      claimName: myclaim
