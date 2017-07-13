@@ -1,9 +1,11 @@
 ![oreilly-logo](./images/oreilly.png) ![k8s](./images/k8s.png)
 
-# Kubernetes Training
+# Kubernetes Training and Cookbook
 
 This repository contains instructions and examples for the O'Reilly Live Online Training for [Kubernetes](https://kubernetes.io).
 Dates are listed in the [O'Reilly Live Online](https://www.safaribooksonline.com/live-training/) training schedule.
+
+It also contains [examples and scripts](./cookbook) used in the Kubernetes [Cookbook](http://shop.oreilly.com/product/0636920064947.do).
 
 ## Prerequisites
 

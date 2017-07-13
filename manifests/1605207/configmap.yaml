@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bleiman
+  labels:
+    app: vol
+spec:
+  containers:
+  - image: busybox
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - mountPath: /kubecon
+      name: test
+    imagePullPolicy: IfNotPresent
+    name: busybox
+  restartPolicy: Always
+  volumes:
+  - name: test
+    configMap:
+      name: foobar
