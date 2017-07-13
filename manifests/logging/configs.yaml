@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ini
+  namespace: logging
+data:
+  grafana.ini: |-
+    ##################### Grafana Configuration Example #####################
+    #
+    # Everything has defaults so you only need to uncomment things you want to
+    # change
+
+    # possible values : production, development
+    ; app_mode = production
