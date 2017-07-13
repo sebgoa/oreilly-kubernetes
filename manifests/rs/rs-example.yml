@@ -2,19 +2,17 @@ apiVersion: extensions/v1beta1
 kind: ReplicaSet
 metadata:
   name: foo
-  namespace: bitnami
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
-      its: hot
+      red: blue
   template:
     metadata:
       name: foo
-      namespace: default
       labels:
-        its: hot
+        red: blue
     spec:
       containers:
       - image: nginx
-        name: foo
+        name: nginx
