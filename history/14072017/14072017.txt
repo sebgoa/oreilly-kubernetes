@@ -1,0 +1,490 @@
+   18  minikube stop
+   19  minikube delete
+   20  curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.20.0/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+   21  minikube version
+   22  minikube start
+   23  kubectl version
+   24  which kubectl
+   25  gcloud components updates
+   26  gcloud components update
+   27  which kubectl
+   28  kubectl version
+   29  kuebctl get nodes
+   30  kubectl get nodes
+   31  kubectl get pods
+   32  clear
+   33  gcloud container clusters list
+   34  gcloud container clusters delete redeye
+   35  clear
+   36  clear
+   37  clear
+   38  kubectl get pods --all-namespaces
+   39  clear
+   40  clear
+   41  minikube status
+   42  kubectl get pods
+   43  kubectl get nodes
+   44  clear
+   45  which gcloud
+   46  gcloud container cluster create foobar
+   47  gcloud container clusters create foobar
+   48  gcloud container clusters list
+   49  kubectl get nodes
+   50  kubectl config view use-context minikube
+   51  kubectl config view use-context minikubeclear
+   52  kubectl config use-context minikubeclear
+   53  kubectl config use-context minikube
+   54  kubectl get nodes
+   55  clear
+   56  minikube status
+   57  kubectl get pods
+   58  kubectl get nodes
+   59  kubectl run ghost --image=ghost
+   60  kubectl get pods
+   61  kubectl get pods
+   62  kubectl expose deployments ghost --port=2368 --type=NodePort
+   63  kubectl get service
+   64  minikube service ghost
+   65  minikube service ghost
+   66  clear
+   67  kubectl run nginx --image=nginx
+   68  kubectl expose deployments nginx --port=80 --type=NodePort
+   69  kubectl get pods
+   70  kubectl get services
+   71  minikube service nginx
+   72  kubectl get pods
+   73  kubectl exec -ti ghost-2663835528-z5sgd -- /bin/bash
+   74  kubectl logs ghost-2663835528-z5sgd
+   75  kubectl get pods
+   76  kubectl logs nginx-2371676037-kgfr3
+   77  clear
+   78  minikube dashboard
+   79  kubectl get pods
+   80  minikube ssh
+   81  minikube logs
+   82  clear
+   83  kubectl get pods
+   84  vi foobar.yml
+   85  kubectl create -f foobar.yml 
+   86  kubectl get pods
+   87  kubectl get pods foobar -o yaml
+   88  kubectl get pods foobar -o yaml | more
+   89  kubectl get pods foobar -o json
+   90  kubectl get pods foobar -o json | jq -r
+   91  kubectl get pods foobar -o json | jq -r .spec
+   92  kubectl get pods foobar -o json | jq -r .spec.nodeName
+   93  clear
+   94  minikube ssh
+   95  clear
+   96  kubectl get
+   97  clear
+   98  kubectl get pods
+   99  kubectl delete pods foobar
+  100  kubectl get pods
+  101  kubectl get pods -v=9 ghost-2663835528-z5sgd
+  102  clear
+  103  curl -k -v -XGET  -H "Accept: application/json" -H "User-Agent: kubectl/v1.7.0 (darwin/amd64) kubernetes/d3ada01" https://192.168.99.100:8443/api/v1/namespaces/default/pods/ghost-2663835528-z5sgd
+  104  minikube ssh
+  105  clear
+  106  kubectl get ns
+  107  kubectl get namespace
+  108  kubectl get pods --all-namespaces
+  109  kubectl create ns oreilly
+  110  kubectl get namespace
+  111  vi foobar.yml 
+  112  kubectl create -f foobar.yml 
+  113  vi foobar.yml 
+  114  kubectl create -f foobar.yml 
+  115  kubectl get pods --all-namespaces
+  116  ls -l
+  117  git remote -v
+  118  cd manifests/
+  119  ls -l
+  120  git status -s
+  121  more quota.yaml 
+  122  kubectl create -f quota.yaml 
+  123  kubectl get pods -n oreilly
+  124  cd ..
+  125  vi foobar.yml 
+  126  kubectl create -f foobar.yml 
+  127  clear
+  128  kubectl create -f https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml
+  129  kubectl get pods
+  130  kubectl get services
+  131  kubectl edit service frontend
+  132  kubectl get pods
+  133  kubectl get pods
+  134  kubectl exec -ti redis-master-1068406935-vndx7 -- redis-cli info
+  135  kubectl get pods
+  136  kubectl scale deployments redis-slave --replicas=5
+  137  kubectl get pods
+  138  kubectl get pods
+  139  kubectl exec -ti redis-master-1068406935-vndx7 -- redis-cli info
+  140  kubectl get pods
+  141  minikube service frontend
+  142  clear
+  143  ls -l
+  144  cd manifests/
+  145  ls -l
+  146  cd rs/
+  147  ls -l
+  148  clear
+  149  more
+  150  ls -l
+  151  pwd
+  152  more rs-example.yml 
+  153  vi rs-example.yml 
+  154  git rs-example.yml 
+  155  git add rs-example.yml 
+  156  git commit -m "fix rs example"
+  157  git push
+  158  more rs-example.yml 
+  159  kubectl create -f rs-example.yml 
+  160  kubectl get rs
+  161  kubectl delete deployments ghost nginx redis redis-master redis-slave
+  162  kubectl get rs
+  163  kubectl delete deployments frontend
+  164  kubectl get rs
+  165  kubectl getpods
+  166  kubectl get pods
+  167  kubectl edit rs foo
+  168  kubectl get pods
+  169  kubectl edit rs foo
+  170  kubectl get pods
+  171  kubectl get pods --show-labels
+  172  more rs-example.yml 
+  173  kubectl edit rs foo
+  174  kubectl get pods
+  175  tmux
+  176  kubectl get pods -l run=nginx
+  177  kubectl get pods -l run=nginx -o json | more
+  178  kubectl get pods -l run=nginx -o json | jq -r [].status.podIP
+  179  kubectl get pods -l run=nginx -o json | jq -r [].status
+  180  kubectl get pods -l run=nginx -o json | jq -r .items.status
+  181  kubectl get pods -l run=nginx -o json | jq -r .items
+  182  kubectl get pods -l run=nginx -o json | jq -r .items.podIP
+  183  kubectl get pods -l run=nginx -o json | jq -r .items.status.podIP
+  184  kubectl get pods -l run=nginx -o json | jq -r .items.status
+  185  kubectl get pods -l run=nginx -o json | jq -r .items[].status
+  186  kubectl get pods -l run=nginx -o json | jq -r .items[].status.podIP
+  187  kubectl get svc
+  188  kubectl get endpoints
+  189  kubectl get pods -l run=nginx -o json | jq -r .items[].status.podIP
+  190  kubectl scale deployments nginx --replicas=5
+  191  kubectl get pods -l run=nginx -o json | jq -r .items[].status.podIP
+  192  kubectl get pods -l run=nginx -o json | jq -r .items[].status.podIP
+  193  kubectl get pods
+  194  kubectl get pods -l run=nginx -o json | jq -r .items[].status.podIP
+  195  kubectl get endpoints
+  196  clear
+  197  cd ..
+  198  ls -l
+  199  clear
+  200  ls -l
+  201  cd ..
+  202  ls -l
+  203  clear
+  204  clear
+  205  clear
+  206  minikube status
+  207  kubectl get pods
+  208  clear
+  209  minikube status
+  210  kubectl get nodes
+  211  kubectl get
+  212  kubectl run ghost --image=ghost
+  213  kubectl expose deployments ghost --port=2368 --type=NodePort
+  214  clear
+  215  kubectl get pods
+  216  kubectl get replicaset
+  217  kubectl get pods -LRUN
+  218  kubectl get pods -Lrun
+  219  kubectl get svc
+  220  kubectl get endpoints
+  221  kubectl get pods -Lrun
+  222  minikube service ghost
+  223  clear
+  224  kubectl get pods
+  225  kubectl get pods ghost-2663835528-k9859 -o yaml
+  226  kubectl get pods ghost-2663835528-k9859 -o json
+  227  kubectl get pods ghost-2663835528-k9859 -o json | jq -r
+  228  kubectl get pods ghost-2663835528-k9859 -o json | jq -r.status.podIP
+  229  kubectl get pods ghost-2663835528-k9859 -o json | jq -r.items[].status.podIP
+  230  kubectl get pods ghost-2663835528-k9859 -o json | jq -r.items.status.podIP
+  231  kubectl get pods ghost-2663835528-k9859 -o json | jq -r .status
+  232  kubectl get pods ghost-2663835528-k9859 -o json | jq -r .status.podIP
+  233  clear
+  234  kubectl get pods
+  235  kubectl get pods ghost-2663835528-k9859 -o yaml | more
+  236  kubectl run --help
+  237  clear
+  238  kubectl get pods
+  239  kubectl get deployments
+  240  kubectl scale deployments ghost --replicas=5
+  241  kubectl get pods
+  242  kubectl get pods --watch
+  243  kubectl get pods
+  244  clear
+  245  kubectl set image deployment ghost ghost=ghost:0.9
+  246  kubectl get pods
+  247  kubectl get pods --watch
+  248  kubectl get pods
+  249  kubectl get pods
+  250  kubectl get pods
+  251  kubectl get pods --watch
+  252  kubectl get rs
+  253  kubectl get rs
+  254  kubectl get pods
+  255  kubectl set image deployment ghost ghost=ghost:08
+  256  kubectl get pods
+  257  kubectl get pods --watch
+  258  kubectl get rs
+  259  kubectl rollout history deployment ghost
+  260  kubectl rollout undo deployment ghost --to-revision=1
+  261  kubectl get rs
+  262  kubectl get rs
+  263  kubectl get rs
+  264  kubectl get rs
+  265  kubectl get rs
+  266  kubectl get rs
+  267  kubectl rollout history deployment ghost
+  268  kubectl annotate deployment ghost kubernetes.io/change-cause="oreilly demo"
+  269  kubectl rollout history deployment ghost
+  270  kubectl get deployments ghost -o yaml | more
+  271  clear
+  272  kubectl rollout history deployment ghost
+  273  kubectl set image deployment ghost ghost=ghost:0.8
+  274  kubectl rollout history deployment ghost
+  275  ls -l
+  276  cd manifests/
+  277  ls -l
+  278  cd ingress-controller/
+  279  ls -l
+  280  more ghost.yaml 
+  281  kubectl get svc
+  282  kubectl edit svc ghost
+  283  kubectl get svc
+  284  minikube service ghost
+  285  kubectl get pods --all-namespaces
+  286  minikube addons list
+  287  minikube addons enabled ingress
+  288  minikube addons enable ingress
+  289  clear
+  290  kubectl get pods --all-namespaces
+  291  kubectl create -f ghost.yaml 
+  292  kubectl get ingress
+  293  kubectl get pods
+  294  kubectl run game --image=runseb/2048
+  295  kubectl expose deployment game --port=80
+  296  kubectl get pods
+  297  ls -l
+  298  more game.yaml 
+  299  kubectl get pods
+  300  kubectl get pods --watch
+  301  kubectl get pods
+  302  more game.yaml 
+  303  kubectl get pods
+  304  kubectl get svc
+  305  ls- l
+  306  ls -l
+  307  kubectl get pods --all-namespaces
+  308  kubectl exec -ti nginx-ingress-controller-p4gc1 -n kube-system -- /bin/bash
+  309  clear
+  310  kubectl get pods nginx-ingress-controller-p4gc1 -n kube-system -o yaml | more
+  311  kubectl get ingress
+  312  more game.yaml 
+  313  kubectl create -f game.yaml 
+  314  kubectl get ingress
+  315  kubectl get ingress
+  316  pwd
+  317  apiVersion: extensions/v1beta1
+  318  kind: Ingress
+  319  metadata:
+  320    name: game
+  321  spec:
+  322    rules:
+  323    - host: game.192.168.99.100.nip.io
+  324      http:
+  325        paths:
+  326        - backend:
+  327            serviceName: game
+  328            servicePort: 80
+  329  pwd
+  330  clear
+  331  kubectl run mysql --image=mysql:5.5 --env MYSQL_ROOT_PASSWORD=root
+  332  kubectl run wordpress --image=wordpress --env WORDPRESS_DB_HOST=mysql --env WORDPRESS_DB_PASSWORD=root
+  333  kubectl expose deployment mysql --port=3306
+  334  kubectl get svc
+  335  kubectl expose deployment wordpress --port=80 --type=NodePort
+  336  kubectl get svc
+  337  kubectl get pods
+  338  kubectl scale deployments ghost --replicas=1
+  339  clear
+  340  kubectl get pods
+  341  kubectl exec -ti mysql-3678996555-7b50q -- mysql -uroot -p
+  342  clear
+  343  kubectl get pods
+  344  minikube service wordpress
+  345  minikube service wordpress
+  346  kubectl get pods
+  347  kubectl exec -ti mysql-3678996555-7b50q -- mysql -uroot -p
+  348  kubectl get pods
+  349  kubectl get pods mysql-3678996555-7b50q -o yaml |more
+  350  ls -l
+  351  kubectl create secret generic mysql --from-literal=password=foobar
+  352  kubectl get secrets
+  353  ls -l
+  354  cd ...
+  355  cd ..
+  356  ls -l
+  357  cd wordpress/
+  358  ls -l
+  359  more mysql-secret.yaml 
+  360  pwd
+  361  kubectl create -f mysql-secret.yaml 
+  362  kubectl get pods
+  363  kubectl exec -ti mysql-secret -- mysql -uroot -p
+  364  ls-l
+  365  ls -l
+  366  kubectl get secrets
+  367  kubectl get secrets mysql -o yaml
+  368  echo "Zm9vYmFy" | base64 --decode
+  369  kubectl get psp
+  370  clear
+  371  kubectl get pods
+  372  cd ..
+  373  ls -l
+  374  cd volumes/
+  375  ls -l
+  376  more volumes.yaml 
+  377  containers:
+  378    - image: busybox
+  379      command:
+  380        - sleep
+  381        - "3600"
+  382      volumeMounts:
+  383      - mountPath: /busy
+  384        name: test
+  385      imagePullPolicy: IfNotPresent
+  386      name: busy
+  387    - image: busybox
+  388      command:
+  389        - sleep
+  390        - "3600"
+  391      volumeMounts:
+  392      - mountPath: /box
+  393        name: test
+  394      imagePullPolicy: IfNotPresent
+  395      name: box
+  396    restartPolicy: Always
+  397  more volumes.yaml 
+  398  kubectl create -f volumes.yaml 
+  399  kubectl get pods
+  400  kubectl get pods
+  401  kubectl exec -ti vol -c busy -- ls -l /busy
+  402  kubectl exec -ti vol -c busy -- touch /busy/foobar
+  403  kubectl exec -ti vol -c busy -- ls -l /busy
+  404  kubectl exec -ti vol -c box -- ls -l /box
+  405  more volumes.yaml 
+  406  clear
+  407  ls -l
+  408  more pvc.yaml 
+  409  kubectl get pv
+  410  kubectl get pvc
+  411  kubectl get persistentvolume
+  412  kubectl create -f pvc.yaml 
+  413  kubectl get pvc
+  414  kubectl get pv
+  415  ls -l
+  416  more hostpath.yaml 
+  417  kubectl create -f hostpath.yaml 
+  418  kubectl get pods
+  419  kubectl get pods
+  420  kubectl exec -ti hostpath -- ls -l /bitnami
+  421  kubectl exec -ti hostpath -- echo "dynamic storage rocks" > /bitnami/claim
+  422  kubectl exec -ti hostpath -- touch /bitnami/storage
+  423  kubectl exec -ti hostpath -- ls -l /bitnami
+  424  kubectl delete pods hostpath
+  425  kubectl get pods
+  426  kubectl get pods
+  427  kubectl get pods
+  428  kubectl get pods
+  429  kubectl get pods
+  430  kubectl get pods
+  431  kubectl get pods
+  432  kubectl get pvc
+  433  kubectl get pv
+  434  kubectl get pv pvc-3359d727-68c2-11e7-a55e-080027b13bd8 -o yaml | more
+  435  minikube ssh
+  436  kubectl get pods
+  437  ls -l
+  438  cd ..
+  439  ls -l
+  440  history
+  441  ls -l
+  442  cd wordpress/
+  443  ls -l
+  444  more mysql.yaml 
+  445  cd ..
+  446  l s-l
+  447  ls -l
+  448  cd volumes/
+  449  ls -l
+  450  vi config.js
+  451  kubectl create configmap test --from-file=config.js
+  452  kubectl get configmaps
+  453  kubectl get cm
+  454  kubectl get cm test -o yaml
+  455  clear
+  456  kubectl get pods
+  457  ls -l
+  458  vi foobar.yaml
+  459  which helm
+  460  helm init
+  461  kubectl get pods --all-namespaces
+  462  helm repo list
+  463  helm search redis
+  464  helm install stable/redis
+  465  helm ls
+  466  kubectl get pods
+  467  kubectl get svc
+  468  kubectl get pvc
+  469  kubectl get pv
+  470  kubectl get deployments
+  471  kubectl get secrets
+  472  clear
+  473  ipython
+  474  clear
+  475  cd..
+  476  ls -l
+  477  cd ..
+  478  ls -l
+  479  cd tpr
+  480  ls -l
+  481  clear
+  482  ls -l
+  483  kubectl get thridpartyresources
+  484  more bananas.yaml 
+  485  kubectl create -f bananas.yaml 
+  486  kubectl get thridpartyresources
+  487  kubectl get thridpartyresources
+  488  kubectl get thridpartyresource
+  489  kubectl get thirdpartyresource
+  490  minikube ssh
+  491  ls-l
+  492  ls -l
+  493  more kubie.yaml 
+  494  more custom-example.yaml 
+  495  minikube ssh
+  496  more bananas.yaml 
+  497  vi foobar.yaml
+  498  kubectl create -f foobar.yaml 
+  499  kubectl get kubecons
+  500  kubectl get kubecons ortwin -o yaml
+  501  clear
+  502  cd ..
+  503  cd ..
+  504  cd history/
+  505  ls -l
+  506  cat history > 14072017.txt
+  507  history > 14072017.txt
