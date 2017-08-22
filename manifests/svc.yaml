@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  selector:
+    red: blue
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort

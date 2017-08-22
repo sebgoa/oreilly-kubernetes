@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: barbar
+  namespace: oreilly
+  labels:
+    foo: bar
+spec:
+  containers:
+  - name: bar
+    image: ghost

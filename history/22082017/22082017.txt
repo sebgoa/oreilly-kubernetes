@@ -1,0 +1,152 @@
+   21  minikube start
+   22  kubectl get pods
+   23  clear
+   24  clear
+   25  minikube status
+   26  kubectl get pods
+   27  kubectl run ghost --image=ghost
+   28  kubectl expose deployment ghost --port=2368 --type=NodePort
+   29  kubectl get pods
+   30  kubectl get pods -w
+   31  kubectl get pods
+   32  minikube service ghost
+   33  minikube service ghost
+   34  clear
+   35  which minikube
+   36  minikube
+   37  clear
+   38  minikube status
+   39  minikube ip
+   40  minikube
+   41  clear
+   42  minikube docker-env
+   43  eval $(minikube docker-env)
+   44  docker ps
+   45  coker ps
+   46  docker ps
+   47  clear
+   48  clear
+   49  clear
+   50  minikube dashboard
+   51  kubectl get nodes
+   52  kubectl get pods
+   53  vi pod.yaml
+   54  kubectl create -f pod.yaml 
+   55  kubectl get pods
+   56  more pod.yaml 
+   57  kubectl get pods foobar
+   58  kubectl get pods foobar -o yaml
+   59  more pod.yaml 
+   60  kubectl get pods
+   61  kubectl get pods ghost-1255708890-1qc4n -o yaml
+   62  clear
+   63  kubectl get pods
+   64  kubectl logs redis-2913962463-jhwtt
+   65  kubectl exec -ti redis-2913962463-jhwtt -- /bin/sh
+   66  clear
+   67  kubectl get pods
+   68  minikube ssh
+   69  clear
+   70  kubectl get pods
+   71  kubectl -v=9 get pods
+   72  minikube ssh
+   73  kubectl get pods
+   74  kubectl get
+   75  clear
+   76  kubectl get pods
+   77  kubectl get pods --all-namespaces
+   78  kubectl get ns
+   79  kubectl create -f pod.yaml 
+   80  kubectl get pods
+   81  kubectl create ns oreilly
+   82  kubectl get ns
+   83  kubectl create -f pod.yaml -n oreilly
+   84  kubectl get pods --all-namespaces
+   85  clear
+   86  ls -l
+   87  cd manifests/
+   88  ls -l
+   89  more quota.yaml 
+   90  kubectl create -f quota.yaml 
+   91  kubectl get resourcequota -n oreilly
+   92  kubectl get pods -n oreilly
+   93  cp ../pod.yaml bar.yaml
+   94  vi bar.yaml 
+   95  kubectl create -f bar.yaml -n oreilly
+   96  kubectl edit resourcequota counts
+   97  kubectl edit resourcequota counts -n oreilly
+   98  kubectl create -f bar.yaml -n oreilly
+   99  kubectl get pods -n oreilly
+  100  kubectl create -f bar.yaml -n oreilly
+  101  kubectl edit pods bar
+  102  kubectl edit pods bar -n oreilly
+  103  clear
+  104  vi bar.yaml
+  105  ls-l
+  106  ls -l
+  107  kubectl get pods
+  108  kubectl scale deployment ghost --replicas=5
+  109  kubectl get pods
+  110  kubectl get pods
+  111  kubectl scale deployment ghost --replicas=2
+  112  kubectl get pods
+  113  clear
+  114  ls -l
+  115  cd rs/
+  116  ls -l
+  117  more rs-example.yml 
+  118  kubectl create -f rs-example.yml 
+  119  kubectl get rs
+  120  kubectl get pods
+  121  kubectl logs foo-178pj 
+  122  kubectl logs -t foo-178pj 
+  123  kubectl logs -f foo-178pj 
+  124  minikube logs foo-178pj 
+  125  clear
+  126  kubectl get pods
+  127  kubectl exec -ti foo-178pj -- /bin/sh
+  128  kubectl get pods foo-178pj -o yaml
+  129  kubectl get pods
+  130  more rs-example.yml 
+  131  kubectl get pods --show-labels
+  132  kubectl get pods -Lred
+  133  kubectl get pods -l red=blue
+  134  kubectl get pods -l red=blue | grep foo | wc -l
+  135  kubectl label pods foo-178pj red=green --overwrite
+  136  kubectl get pods -Lred
+  137  cd ..
+  138  ls -l
+  139  ls -l
+  140  vi bar.yaml 
+  141  kubectl create -f bar.yaml 
+  142  kubectl create -f bar.yaml -n default
+  143  kubectl edit resourcequota counts -n oreilly
+  144  kubectl create -f bar.yaml 
+  145  kubectl get pods --all-namespaces --show-labels
+  146  kubectl get pods
+  147  clear
+  148  clear
+  149  kubectl get pods
+  150  kubectl get pods -Lred
+  151  ls -l
+  152  cd ..
+  153  ls -l
+  154  cd manifests/
+  155  ls -l
+  156  more test.yaml 
+  157  clear
+  158  ls -l
+  159  grep -r Service .
+  160  cp 1605207/game-svc.yml svc.yaml
+  161  vi svc.yaml 
+  162  more svc.yaml 
+  163  kubectl create -f svc.yaml 
+  164  kubectl get svc
+  165  minikube service nginx
+  166  kubectl get pods
+  167  kubectl get pods -Lred
+  168  kubectl get endpoints
+  169  kubectl edit rs foo
+  170  kubectl get pods
+  171  kubectl get pods -Lred
+  172  kubectl get endpoints
