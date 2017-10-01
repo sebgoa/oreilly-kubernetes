@@ -1,0 +1,6 @@
+apiVersion: foo.bar/v1 
+kind: DataBase
+metadata:
+  name: my-new-db 
+spec:
+  type: mysql

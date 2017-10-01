@@ -1,0 +1,59 @@
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    name: node-exporter
+  name: node-exporter
+  namespace: monitoring
+spec:
+  template:
+    metadata:
+      labels:
+        name: node-exporter
+    spec:
+      containers:
+      - args:
+        - --collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($|/)
+        - --collector.procfs=/host/proc
+        - --collector.sysfs=/host/sys
+        env: []
+        image: prom/node-exporter:v0.14.0
+        livenessProbe:
+          httpGet:
+            path: /
+            port: scrape
+        name: node-exporter
+        ports:
+        - containerPort: 9100
+          name: scrape
+        readinessProbe:
+          httpGet:
+            path: /
+            port: scrape
+          successThreshold: 2
+        volumeMounts:
+        - mountPath: /host/proc
+          name: procfs
+          readOnly: true
+        - mountPath: /rootfs
+          name: root
+          readOnly: true
+        - mountPath: /host/sys
+          name: sysfs
+          readOnly: true
+      hostNetwork: true
+      hostPID: true
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+      volumes:
+      - hostPath:
+          path: /proc
+        name: procfs
+      - hostPath:
+          path: /
+        name: root
+      - hostPath:
+          path: /sys
+        name: sysfs

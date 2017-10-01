@@ -1,0 +1,69 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    name: grafana
+spec:
+  replicas: 1
+  serviceName: grafana
+  template:
+    metadata:
+      labels:
+        name: grafana
+    spec:
+      containers:
+      - image: grafana/grafana:4.5.2
+        name: grafana
+        imagePullPolicy: IfNotPresent
+        # env:
+        resources:
+          # keep request = limit to keep this container in guaranteed class
+          limits:
+            cpu: 200m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+          - name: GF_AUTH_BASIC_ENABLED
+            value: "true"
+          - name: GF_AUTH_ANONYMOUS_ENABLED
+            value: "true"
+          - name: GF_AUTH_ANONYMOUS_ORG_ROLE
+            value: Viewer
+          - name: GF_LOG_LEVEL
+            value: warn
+          - name: GF_LOG_MODE
+            value: console
+          - name: GF_METRICS_ENABLED
+            value: "true"
+          - name: GF_SERVER_ROOT_URL
+            value: "%(protocol)s://%(domain)s:%(http_port)s/api/v1/proxy/namespaces/monitoring/services/grafana:3000/"
+        readinessProbe:
+          httpGet:
+            path: /api/org
+            port: 3000
+          # initialDelaySeconds: 30
+          # timeoutSeconds: 1
+        volumeMounts:
+        - name: grafana-data
+          mountPath: /var/lib/grafana
+#      volumes:
+#      - name: grafana-data
+#        hostPath:
+#          path: /srv/var/lib/grafana
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: grafana-data
+      namespace: monitoring
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+

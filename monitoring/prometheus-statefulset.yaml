@@ -1,0 +1,82 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  labels:
+    name: prometheus
+  name: prometheus
+  namespace: monitoring
+spec:
+  replicas: 1
+  serviceName: prometheus
+  selector:
+    matchLabels:
+      name: prometheus
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: prometheus
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+    spec:
+      serviceAccountName: prometheus-k8s
+      containers:
+      - args:
+        - --config.file=/etc/prometheus-config/prometheus.yml
+        - --storage.local.path=/prometheus
+        - --storage.local.retention=720h
+        - --web.console.libraries=/etc/prometheus/console_libraries
+        - --web.console.templates=/etc/prometheus/consoles
+        - --web.external-url=http://127.0.0.1:8001/api/v1/proxy/namespaces/monitoring/services/prometheus:9090/
+        - --web.route-prefix=/
+        image: prom/prometheus:v1.7.2
+        imagePullPolicy: IfNotPresent
+        name: prometheus
+        ports:
+        - containerPort: 9090
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            memory: 2500Mi
+          requests:
+            cpu: 500m
+            memory: 1500Mi
+        volumeMounts:
+        - mountPath: /etc/prometheus-config
+          name: config
+          readOnly: true
+        - mountPath: /prometheus
+          name: prometheus-data
+      - args:
+        - --volume-dir=/etc/config
+        - --webhook-url=http://localhost:9090/-/reload
+        image: jimmidyson/configmap-reload:v0.1
+        imagePullPolicy: IfNotPresent
+        name: configmap-reload
+        volumeMounts:
+        - mountPath: /etc/config
+          name: config
+          readOnly: true
+      restartPolicy: Always
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: prometheus-config
+        name: config
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: prometheus-data
+      namespace: monitoring
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 8Gi
+

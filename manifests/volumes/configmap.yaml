@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: bleiman
+  name: cm-test
   labels:
     app: vol
 spec:
