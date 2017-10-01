@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: redblue
+spec:
+  rules:
+  - host: redblue.192.168.99.100.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: red
+          servicePort: 80
