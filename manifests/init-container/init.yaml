@@ -2,41 +2,28 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: init-demo
-  annotations:
-    pod.beta.kubernetes.io/init-containers: '[
-        {
-            "name": "install",
-            "image": "python:2.7-alpine",
-            "command": ["pip", "install", "--prefix=/pythonpath", "-r", "/requirements/requirements.txt"],
-            "volumeMounts": [
-                {
-                    "name": "pythonpath",
-                    "mountPath": "/pythonpath"
-                },
-		{
-		    "name": "requirements",
-                    "mountPath": "/requirements"
-		}
-            ]
-        }
-    ]'
 spec:
   containers:
   - name: python
     image: python:2.7-alpine
-    env:
-      - name: PYTHONPATH
-        value: /opt/kubeless/pythonpath/lib/python2.7/site-packages
     command:
-      - sleep
-      - "3600"
+      - python
+      - "-m"
+      - SimpleHTTPServer
     volumeMounts:
     - name: pythonpath
-      mountPath: /opt/kubeless/pythonpath
-  dnsPolicy: Default
+      mountPath: /tmp/init
+  initContainers:
+  - name: busybox
+    image: busybox
+    command:
+    - wget
+    - "-O"
+    - "/tmp/init/"
+    - http://google.com 
+    volumeMounts:
+    - name: path
+      mountPath: "/tmp/init" 
   volumes:
-  - name: pythonpath
+  - name: path
     emptyDir: {}
-  - name: requirements
-    configMap:
-      name: requirements

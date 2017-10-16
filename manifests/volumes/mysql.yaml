@@ -8,11 +8,11 @@ spec:
     name: db
     volumeMounts:
     - mountPath: /var/lib/mysql
-      name: foobar
+      name: barfoo
     env:
       - name: MYSQL_ROOT_PASSWORD
         value: root
   volumes:
-  - name: foobar
+  - name: barfoo
     persistentVolumeClaim:
-      claimName: myclaim
+      claimName: foobar
