@@ -8,7 +8,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      run: blue
+      run: test
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -17,15 +17,15 @@ spec:
   template:
     metadata:
       labels:
-        run: blue
+        run: test
     spec:
       containers:
       - image: nginx
         name: nginx
         volumeMounts:
         - mountPath: /usr/share/nginx/html
-          name: red
+          name: redblue
       volumes:
-      - name: red
+      - name: redblue
         configMap:
           name: blue

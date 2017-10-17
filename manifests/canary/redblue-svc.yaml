@@ -4,7 +4,7 @@ metadata:
   name: redblue
 spec:
   selector:
-    app: red
+    run: test
   type: NodePort
   ports:
   - port: 80
