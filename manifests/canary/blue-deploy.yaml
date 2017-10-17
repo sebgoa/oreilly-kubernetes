@@ -24,8 +24,8 @@ spec:
         name: nginx
         volumeMounts:
         - mountPath: /usr/share/nginx/html
-          name: red
+          name: blue
       volumes:
-      - name: red
+      - name: blue
         configMap:
           name: blue
