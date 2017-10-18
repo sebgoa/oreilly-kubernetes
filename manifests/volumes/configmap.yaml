@@ -11,7 +11,7 @@ spec:
       - sleep
       - "3600"
     volumeMounts:
-    - mountPath: /kubecon
+    - mountPath: /velocity
       name: test
     imagePullPolicy: IfNotPresent
     name: busybox

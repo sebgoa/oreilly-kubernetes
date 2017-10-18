@@ -2,10 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: redis
-  namespace: oreilly
 spec:
   containers:
-  - image: redis:3.2
+  - image: bitnami/redis
     imagePullPolicy: IfNotPresent
     name: redis
     securityContext:
