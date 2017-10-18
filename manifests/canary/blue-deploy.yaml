@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     run: test
-  name: bluered
+  name: blue
 spec:
   replicas: 2
   selector:
@@ -24,8 +24,8 @@ spec:
         name: nginx
         volumeMounts:
         - mountPath: /usr/share/nginx/html
-          name: redblue
+          name: blue
       volumes:
-      - name: redblue
+      - name: blue
         configMap:
           name: blue
