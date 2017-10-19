@@ -8,5 +8,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: red
+          serviceName: redblue
           servicePort: 80

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     run: test
-  name: redblue
+  name: red
 spec:
   replicas: 2
   selector:

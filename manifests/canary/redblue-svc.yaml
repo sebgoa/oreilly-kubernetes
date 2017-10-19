@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: red
+  name: redblue
 spec:
   selector:
-    app: red
+    run: test
   type: NodePort
   ports:
   - port: 80
