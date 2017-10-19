@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    version: 4
+    host: www.example.com
+    ports:
+    - 80
+    - 9090
+kind: ConfigMap
+metadata:
+  name: config-file
