@@ -1,11 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ghost
-  namespace: ricardo1
+  name: redis
 spec:
   containers:
-  - image: ghost
+  - image: redis:3.2
     imagePullPolicy: IfNotPresent
-    name: ghost
+    name: mysql
   restartPolicy: Always
