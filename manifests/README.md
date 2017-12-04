@@ -1,9 +1,7 @@
 ![oreilly-logo](./images/oreilly.png) ![k8s](./images/k8s.png)
 
-# Pod chapter
-First lab is just a basic pod running a redis cache image.
-File : redis.yaml
+# Manifests
+This dir hosts all the K8s manifests used during the training.
 
-Second lab adds a namespace "oreilly" and a ResourceQuota
-> kubectl create ns oreilly
-File : rq.yaml
+Some of the chapter are well defined and numbered.
+The rest are for specific examples and demonstration, and may not relate to a specific chapter in the training.
