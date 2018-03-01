@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: foobar
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      baz: bar
+  template:
+    metadata:
+      name: test
+      labels:
+        baz: bar
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
