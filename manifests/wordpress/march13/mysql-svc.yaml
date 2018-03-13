@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mysql
+  name: mysql
+  selfLink: /api/v1/namespaces/default/services/mysql
+spec:
+  ports:
+  - port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    run: mysql
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
