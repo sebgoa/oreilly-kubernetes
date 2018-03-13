@@ -5,6 +5,7 @@ metadata:
   labels:
     run: wordpress
   name: wordpress
+  namespace: oreilly
   selfLink: /api/v1/namespaces/default/services/wordpress
 spec:
   externalTrafficPolicy: Cluster

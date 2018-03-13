@@ -8,6 +8,7 @@ metadata:
   labels:
     run: mysql
   name: mysql
+  namespace: oreilly
   selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/mysql
 spec:
   replicas: 1

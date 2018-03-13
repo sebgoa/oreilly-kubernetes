@@ -8,6 +8,7 @@ metadata:
   labels:
     run: wordpress
   name: wordpress
+  namespace: oreilly
   selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/wordpress
 spec:
   replicas: 1

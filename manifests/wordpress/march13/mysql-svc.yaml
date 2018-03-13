@@ -5,6 +5,7 @@ metadata:
   labels:
     run: mysql
   name: mysql
+  namespace: oreilly
   selfLink: /api/v1/namespaces/default/services/mysql
 spec:
   ports:
