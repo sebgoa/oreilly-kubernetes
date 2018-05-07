@@ -8,5 +8,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: foobar
+          serviceName: nginx
           servicePort: 80

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: init-demo
+  name: init-demo2
 spec:
   containers:
   - name: python
@@ -11,7 +11,7 @@ spec:
       - "-m"
       - SimpleHTTPServer
     volumeMounts:
-    - name: pythonpath
+    - name: path
       mountPath: /tmp/init
   initContainers:
   - name: busybox
@@ -19,11 +19,11 @@ spec:
     command:
     - wget
     - "-O"
-    - "/tmp/init/"
+    - "/tmp/init/index.html"
     - http://google.com 
     volumeMounts:
     - name: path
-      mountPath: "/tmp/init" 
+      mountPath: /tmp/init
   volumes:
   - name: path
     emptyDir: {}
