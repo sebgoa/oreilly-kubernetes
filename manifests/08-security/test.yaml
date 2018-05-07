@@ -6,8 +6,10 @@ spec:
   containers:
   - image: bitnami/redis
     imagePullPolicy: IfNotPresent
+    env:
+    - name: ALLOW_EMPTY_PASSWORD
+      value: "yes"
     name: redis
     securityContext:
       runAsNonRoot: true
-      readOnlyRootFilesystem: true
   restartPolicy: Always
