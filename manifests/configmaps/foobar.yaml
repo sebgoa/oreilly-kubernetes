@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  containers:
+  - image: busybox
+    command:
+      - sleep
+      - "3600"
+    name: busybox
+    volumeMounts:
+      - name: test
+        mountPath: /tmp/test
+  volumes:
+    - name: test
+      configMap:
+        name: foobar

@@ -1,7 +1,6 @@
-apiVersion: extensions/v1beta1
-kind: ThirdPartyResource
+apiVersion: loom.com/v2
+kind: Fruit
 metadata:
-  name: mango-fruit.fruit.com
-description: "A mango resource"
-versions:
-- name: v1
+  name: mango 
+spec:
+  type: exotic

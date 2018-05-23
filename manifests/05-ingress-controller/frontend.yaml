@@ -4,9 +4,9 @@ metadata:
   name: frontend
 spec:
   rules:
-  - host: nginx.192.168.99.100.nip.io
+  - host: frontend.192.168.99.100.nip.io
     http:
       paths:
       - backend:
-          serviceName: nginx
+          serviceName: frontend
           servicePort: 80
