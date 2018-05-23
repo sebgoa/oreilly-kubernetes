@@ -1,0 +1,405 @@
+
+  500  vi pod.yaml 
+  503  more pod.yaml 
+  504  kubectl create -f pod.yaml 
+  505  kubectl get nodes --show-labels
+  506  kubectl label node minikube oreilly=rocks
+  507  clear
+  508  clear
+  509  kubectl get pods -w
+  510  clear
+  511  kubectl get pods
+  512  kubectl delete pods oreilly
+  513  kubectl delete pods oreilly-2
+  514  kubectl delete rs oreilly
+  515  clear
+  516  kubectl get pods
+  517  kubectl get pods --show-labels
+  518  more rs.yaml
+  519  vi rs.yaml 
+  520  kubectl create -f rs.yaml 
+  521  clear
+  522  kubectl get rs
+  523  kubectl get pods
+  524  kubectl get pods --show-labels
+  525  vi svc.yaml
+  526  kubectl create -f svc.yaml 
+  527  kubectl get svc
+  528  curl 192.168.99.100:31446446
+  529  clear
+  530  kubectl get svc
+  531  kubectl run busy -it --image=busybox -- /bin/sh
+  532  clear
+  533  minikube stop
+  534  minikube delete
+  535  cd ~/Documents
+  536  ls -l
+  537  cd seb/
+  538  ls -l
+  539  cd ..
+  540  cd ..
+  541  ls -l
+  542  cd gitforks/
+  543  ls- l
+  544  ls -l
+  545  cd oreilly-kubernetes/
+  546  ls -l
+  547  clear
+  548  clear
+  549  clear
+  550  ls -l
+  551  minikube status
+  552  minikube delete
+  553  minikube start
+  554  kubectl get pods
+  555  clear
+  556  kubectl version
+  557  clear
+  558  which minikube
+  559  which gcloud
+  560  clear
+  561  minikube
+  562  minikube status
+  563  clear
+  564  minikube status
+  565  which kubectl 
+  566  kubectl version
+  567  kubectl proxy
+  568  clear
+  569  tmux
+  570  clear
+  571  clear
+  572  ls -l
+  573  minikube status
+  574  minikube start
+  575  minikube dashboard
+  576  clear
+  577  kubectl get pods
+  578  kubectl get rs
+  579  kubectl get deployments
+  580  kubectl scale deployment redis --replicas 4
+  581  kubectl get deployments
+  582  kubectl get pods
+  583  kubectl set image redis redis=redis:4.5
+  584  kubectl set --help
+  585  kubectl set image --help
+  586  clear
+  587  kubectl set image deployment/redis redis=redis:4.5
+  588  kubectl get pods
+  589  kubectl get pods -w
+  590  kubectl get pods -w
+  591  kubectl get pods
+  592  kubectl get pods
+  593  kubectl get pods
+  594  kubectl get pods
+  595  kubectl get pods
+  596  kubectl get pods
+  597  kubectl set image deployment/redis redis=redis:3.2
+  598  kubectl get pods -w
+  599  clear
+  600  kubectl get pods
+  601  kubectl get pods redis-54bb49b6f9-2r652 -o yaml
+  602  clear
+  603  kubectl get pods
+  604  kubectl get pods -o json | jq -r .items[]
+  605  kubectl get pods -o json | jq -r .items[].spec.containers[0].image
+  606  kubectl rollout history deployment redis
+  607  kubectl rollout undo deployment redis --to-revision 2
+  608  kubectl get pods -o json | jq -r .items[].spec.containers[0].image
+  609  kubectl get pods
+  610  kubectl rollout history deployment redis
+  611  kubectl rollout undo deployment redis --to-revision 1
+  612  kubectl get pods
+  613  kubectl get pods
+  614  kubectl get pods
+  615  kubectl get pods
+  616  kubectl get pods
+  617  kubectl get pods
+  618  kubectl get pods
+  619  kubectl get pods
+  620  kubectl get pods -o json | jq -r .items[].spec.containers[0].image
+  621  kubectl get pods
+  622  kubectl get deployments
+  623  kubectl get rs
+  624  kubectl rollout history deployment redis
+  625  kubectl rollout undo deployment redis --to-revision 3
+  626  kubectl get rs
+  627  kubectl get rs
+  628  kubectl get rs
+  629  kubectl get rs
+  630  kubectl get rs
+  631  kubectl get rs
+  632  kubectl rollout history deployment redis
+  633  kubectl get deployment redis
+  634  kubectl get deployment redis -o yaml
+  635  clear
+  636  vi deploy.yaml
+  637  cat deploy.yaml 
+  638  kubectl create -f deploy.yaml 
+  639  vi deploy.yaml
+  640  clear
+  641  cat deploy.yaml 
+  642  kubectl create -f deploy.yaml 
+  643  kubectl get deployment
+  644  kubectl get rs
+  645  kubectl get pods
+  646  cat deploy.yaml 
+  647  kubectl rollout history deployment redis
+  648  kubectl edit deployment redis
+  649  kubectl rollout history deployment redis
+  650  kubectl set image deployment/redis redis=redis:3.2
+  651  kubectl rollout history deployment redis
+  652  kubectl set image deployment/redis redis=redis:3.9
+  653  kubectl rollout history deployment redis
+  654  clear
+  655  kubectl get pods
+  656  kubectl delete deployment redis
+  657  kubectl get pods
+  658  kubectl run game --image=runseb/2048
+  659  kubectl get deployments
+  660  kubectl get rs
+  661  kubectl get pods
+  662  kubectl get pods
+  663  kubectl get svc
+  664  ls -l
+  665  more svc.yaml 
+  666  kubectl get pods
+  667  kubectl get pods --show-labels
+  668  vi svc.yaml 
+  669  kubectl create -f svc.yaml 
+  670  kubectl get svc
+  671  kubectl expose deployments game --port 80 --type NodePort
+  672  kubectl delete -f svc.yaml 
+  673  kubectl get svc
+  674  kubectl create -f svc.yaml 
+  675  kubectl get svc
+  676  clear
+  677  minikube ssh
+  678  clear
+  679  ls -l
+  680  clear
+  681  kubectl get svc
+  682  minikube service game
+  683  minikube service ghost
+  684  clear
+  685  kubectl create -f https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml
+  686  kubectl get deployments
+  687  kubectl get svc
+  688  kubectl edit svc frontend
+  689  kubectl get svc
+  690  kubectl get pods
+  691  kubectl get pods
+  692  kubectl get pods
+  693  kubectl get pods
+  694  kubectl get pods
+  695  minikube service frontend
+  696  more svc.yaml 
+  697  clear
+  698  minikube addons list
+  699  kubectl get pods -n kube-system
+  700  kubectl get pods nginx-ingress-controller-5g4z8 -o yaml -n kube-system
+  701  kubectl get pods
+  702  kubectl get svc
+  703  kubectl edit svc frontend
+  704  kubectl get svc
+  705  ls -l
+  706  cd manifests/
+  707  ls -l
+  708  cd 05-ingress-controller/
+  709  ls -l
+  710  pwd
+  711  more frontend.yaml 
+  712  vi frontend.yaml 
+  713  vi ghost.yaml 
+  714  vi game.yaml 
+  715  kubectl create -f frontend.yaml 
+  716  kubectl create -f ghost.yaml 
+  717  kubectl create -f game.yaml 
+  718  kubectl get ingress
+  719  kubectl exec -ti nginx-ingress-controller-5g4z8 -- /bin/sh -n kube-system
+  720  kubectl exec -ti nginx-ingress-controller-5g4z8 -n kube-system -- /bin/sh
+  721  clear
+  722  clear
+  723  kubectl run mysql --image=mysql:5.5 --env MYSQL_ROOT_PASSWORD=root
+  724  kubectl expose deployment mysql --port 3306
+  725  kubectl get pods
+  726  kubectl delete deployments frontend redis-master redis-slave
+  727  kubectl get pods
+  728  kubectl exec -ti mysql-55d65b64bb-qzhk5 -- mysql -uroot -p
+  729  kubectl run wordpress --image=wordpress --env WORDPRESS_DB_PASSWORD=root --env WORDPRESS_DB_HOST=mysql
+  730  kubectl expose deployments wordpress --port 80
+  731  kubectl get pods
+  732  kubectl get pods
+  733  ls -l
+  734  more wordpress.yaml 
+  735  kubectl create -f wordpress.yaml 
+  736  kubectl get ingress
+  737  kubectl get ingress
+  738  kubectl get ingress
+  739  kubectl get ingress
+  740  kubectl get ingress
+  741  cat wordpress.yaml 
+  742  pwd
+  743  history |grep kubectl
+  744  kubectl get pods
+  745  kubectl exec -ti mysql-55d65b64bb-qzhk5 -- mysql -uroot -p
+  746  kubectl exec -ti mysql-55d65b64bb-qzhk5 -- mysql -uroot -p
+  747  kubectl run -ti busybox --image=busybox -- /bin/sh
+  748  cler
+  749  clear
+  750  kubectl get pods
+  751  kubectl get pods mysql-55d65b64bb-qzhk5 -o yaml
+  752  clear
+  753  kubectl get secrets
+  754  kubectl create secret generic foobar --from-literal=password=root
+  755  kubectl get secrets
+  756  kubectl get secrets foobar -o yaml
+  757  echo "cm9vdA==" | base64 -D
+  758  ls -l
+  759  cd ..
+  760  ls -l
+  761  cd wordpress/
+  762  ls -l
+  763  more mysql-secret.yaml 
+  764  kubectl create -f mysql-secret.yaml 
+  765  kubectl get pods
+  766  kubectl get pods
+  767  kubectl logs mysql-secret
+  768  kubectl describe pods mysql-secret
+  769  more mysql-secret.yaml 
+  770  kubectl get secrets
+  771  kubectl edit pod mysql-secret
+  772  kubectl delete pods mysql-secret
+  773  vi mysql-secret.yaml 
+  774  kubectl create -f mysql-secret.yaml 
+  775  kubectl get pods
+  776  kubectl exec -ti mysql-secret -- mysql -uroot -p
+  777  clear
+  778  kubectl get pods
+  779  ls -l
+  780  cd ..
+  781  ls -l
+  782  cd 06-volumes/
+  783  ls -l
+  784  more configmap.yaml 
+  785  ls -l
+  786  vi foobar.md
+  787  kubectl create configmap foobar --from-file=foobar.md
+  788  kubectl get configmap
+  789  kubectl get configmap foobar -o yaml
+  790  ls -l
+  791  more configmap.yaml 
+  792  pwd
+  793  kubectl create -f configmap.yaml 
+  794  kubectl get pods
+  795  kubectl exec -ti cm-test -- /bin/sh
+  796  ls -l
+  797  more volumes.yaml 
+  798  kubectl create -f volumes.yaml 
+  799  kubectl get pods
+  800  kubectl exec -ti vol -c busy -- ls -l /busy
+  801  kubectl exec -ti vol -c busy -- touch /busy/busy
+  802  kubectl exec -ti vol -c busy -- ls -l /busy
+  803  kubectl exec -ti vol -c box -- ls -l /box
+  804  ls -l
+  805  kubectl get pods
+  806  kubectl delete pods cm-test vol mysql-secret
+  807  kubectl get pods
+  808  kubectl get pods
+  809  kubectl get pods
+  810  kubectl get pods
+  811  kubectl get pods
+  812  kubectl get pods
+  813  kubectl get pods
+  814  kubectl get pods
+  815  kubectl get pods
+  816  kubectl get pods
+  817  kubectl get pods
+  818  kubectl get pods
+  819  clear
+  820  kubectl get pods
+  821  kubectl get pods
+  822  kubectl get pods
+  823  kubectl get pods
+  824  kubectl get pods
+  825  kubectl get pods
+  826  kubectl get pods
+  827  kubectl get pods
+  828  clear
+  829  kubectl get pods
+  830  kubectl delete pods mysql-55d65b64bb-qzhk5
+  831  kubectl get pods
+  832  kubectl get pods
+  833  ls -l
+  834  more pvc.yaml 
+  835  kubectl create -f pvc.yaml 
+  836  kubectl get pvc
+  837  kubectl get pv
+  838  kubectl get storageclass
+  839  kubectl get storageclass standard -o yaml
+  840  kubectl get pv
+  841  kubectl get pv pvc-9a79e0ae-5e95-11e8-9bed-080027dd6acf -o yaml
+  842  ls -l /tmp/hostpath-provisioner/pvc-9a79e0ae-5e95-11e8-9bed-080027dd6acf
+  843  clear
+  844  ls -l
+  845  kubectl get pvc
+  846  more mysql.yaml 
+  847  kubectl create -f mysql.yaml 
+  848  kubectl get pods
+  849  kubectl exec -ti data -- mysql -uroot -p
+  850  kubectl get pods
+  851  kubectl delete pods data
+  852  kubectl get pods
+  853  kubectl get pods
+  854  kubectl get pods
+  855  kubectl get pods
+  856  minikube ssh
+  857  kubectl get pods
+  858  kubectl create -f mysql.yaml 
+  859  kubectl get pods
+  860  kubectl exec -ti data -- mysql -uroot -p
+  861  clear
+  862  kubectl get pods
+  863  kubectl delete deployments ghost game busybox
+  864  which helm
+  865  helm
+  866  helm init
+  867  kubectl get pods -n kube-system
+  868  kubectl get pods -n kube-system -w
+  869  helm ls
+  870  helm repo list
+  871  helm search minio
+  872  helm inspect stable/minio
+  873  helm install stable/minio
+  874  kubectl get pods
+  875  helm ls
+  876  helm delete plinking-lambkin
+  877  helm ls
+  878  kubectl get pods
+  879  helm create oreilly
+  880  cd oreilly/
+  881  ls -l
+  882  tree .
+  883  cd templates/
+  884  ls -l
+  885  more service.yaml 
+  886  cat ../values.yaml 
+  887  cd ..
+  890  cd ..
+  892  cd ..
+  894  cd 07-crd/
+  897  more fruit.yml 
+  898  kubectl get fruits
+  899  kubectl create -f fruit.yml 
+  900  kubectl get fruits
+  901  more mango.yaml 
+  902  more database.yml 
+  903  vi mango.yaml 
+  904  cat db.yml 
+  905  vi mango.yaml 
+  906  cat mango.yaml 
+  907  kubectl create -f mango.yaml 
+  908  kubectl get fruits
+  909  kubectl get fruit
+  910  kubectl get fr
+  911  kubectl get fr mango -o yaml
