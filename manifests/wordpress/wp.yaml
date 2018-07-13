@@ -73,10 +73,7 @@ spec:
         - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql
-              key: password
+          value: root
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -97,7 +94,4 @@ spec:
         - containerPort: 80
         env:
         - name: WORDPRESS_DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: wordpress
-              key: password
+          value: root
