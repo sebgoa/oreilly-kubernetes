@@ -1,0 +1,346 @@
+    1  kubectl get pods
+    2  which git
+    3  sudo su apt-get install -y git
+    4  sudo su apt-get install git
+    5  sudo su
+    6  kubectl get pods
+    7  sudo kubectl get pods
+    8  kubectl get pods
+    9  clear
+   10  git clone https://github.com/sebgoa/oreilly-kubernetes.git
+   11  ls -l
+   12  cd oreilly-kubernetes/
+   13  ls -l
+   14  cd manifests/
+   15  ls -l
+   16  clear
+   17  tree
+   18  clear
+   19  sudo su
+   20  tree
+   21  clear
+   22  kubectl get pods
+   23  sudo su
+   24  kubectl get pods
+   25  clear
+   26  lear
+   27  clear
+   28  kubectl get nodes
+   29  cd ..
+   30  git remote -v
+   31  cd manifests/
+   32  ls -l
+   33  cd 01-pod/
+   34  ls -l
+   35  more redis.yaml 
+   36  vi pod.yaml
+   37  more pod.yaml 
+   38  kubectl create -f pod.yaml 
+   39  clear
+   40  kubectl get pods
+   41  kubectl get pods --show-labels
+   42  kubectl label pods oreilly app=nginx
+   43  kubectl get pods --show-labels
+   44  kubectl expose pods oreilly --port 80 --type NodePort -o json --dry-run 
+   45  kubectl expose pods oreilly --port 80 --type NodePort -o yaml --dry-run 
+   46  kubectl expose pods oreilly --port 80 --type NodePort -o yaml --dry-run > svc.yaml
+   47  kubectl create -f svc.yaml 
+   48  kubectl get svc
+   49  kubectl get endpoints
+   50  clear
+   51  kubectl get pods
+   52  which js
+   53  which jq
+   54  sudo su
+   55  clear
+   56  which jq
+   57  kubectl get --help
+   58  clear
+   59  kubectl get pods -o json |jq -r
+   60  kubectl get pods -o json |jq -r .status.podIP
+   61  kubectl get pods -o json |jq -r .items[].status.podIP
+   62  kubectl get endpoints
+   63  clear
+   64  kubectl run mysql --image=mysql:5.5 --env MYSQL_ROOT_PASSWORD=root
+   65  kubectl expose deployment mysql --port 3306
+   66  kubectl run wordpress --image=wordpress --env WORDPRESS_DB_PASSWORD=root --env WORDPRESS_DB_HOST=mysql
+   67  kubectl expose deployment wordpress --port 3306 --type NodePort
+   68  kubectl get pods
+   69  kubectl get svc
+   70  clear
+   71  kubectl get svc
+   72  kubectl get endpoints
+   73  kubectl get pods --show-labels
+   74  kubectl exec -it mysql-796fbf7-42hhj mysql -uroot -p
+   75  kubectl exec -it mysql-796fbf7-42hhj -- mysql -uroot -p
+   76  clear
+   77  kubectl get pods
+   78  kubectl logs wordpress-7c78cb8675-w5dbv
+   79  kubectl get pods
+   80  kubectl get svc
+   81  kubectl edit svc wordpress
+   82  kubectl get svc
+   83  clear
+   84  ls -l
+   85  cd ..
+   86  ls -l
+   87  06-volumes/
+   88  ls -l
+   89  cd 06-volumes/
+   90  ls -l
+   91  more volumes.yaml 
+   92  kubectl create secret
+   93  kubectl create secret generic foo --from-literal=secret=password
+   94  kubectl get secrets
+   95  vi file.txt
+   96  cat file.txt 
+   97  kubectl create cm foo --from-file=file.txt
+   98  kubectl get cm
+   99  clear
+  100  kubectl get secrets
+  101  kubectl get cm
+  102  kubectl get cm foo -o yaml
+  103  vi vol.yaml
+  104  kubectl create -f vol.yaml 
+  105  clear
+  106  kubectl get pod
+  107  kubectl exec -ti foo -- ls -l /tmp
+  108  kubectl exec -ti foo -- ls -l /tmp/cm
+  109  kubectl exec -ti foo -- ls -l /tmp/secret
+  110  kubectl exec -ti foo -- cat /tmp/cm/file.txt
+  111  kubectl exec -ti foo -- cat /tmp/secret/password
+  112  kubectl exec -ti foo -- cat /tmp/secret/secret
+  113  more pod
+  114  more vol.yaml 
+  115  clear
+  116  ls -l
+  117  kubectl get deployments
+  118  kubectl get svc
+  119  cd ..
+  120  ls -l
+  121  mkdir rydercup
+  122  cd rydercup/
+  123  ls -l
+  124  clear
+  125  kubectl get deployments wordpress --export -o yaml 
+  126  kubectl get deployments wordpress --export -o yaml > wp.yaml
+  127  kubectl get deployments mysql --export -o yaml > mysql.yaml
+  128  ls -l
+  129  kubectl get svc wordpress --export -o yaml > wp-svc.yaml
+  130  kubectl get svc mysql --export -o yaml > mysql-svc.yaml
+  131  ls -l
+  132  more wp-svc.yaml 
+  133  kubectl delete deployments wordpress mysql
+  134  kubectl delete svc wordpress mysql
+  135  kubectl get pods
+  136  kubectl delete pods foo oreilly
+  137  kubectl get pods
+  138  clear
+  139  ls -l
+  140  kubectl create -f mysql-svc.yaml 
+  141  kubectl create -f mysql.yaml 
+  142  kubectl create -f wp.yaml 
+  143  kubectl create -f wp-svc.yaml 
+  144  kubectl get pods
+  145  kubectl delete -f wp.yaml
+  146  kubectl get pods
+  147  kubectl create -f wp.yaml 
+  148  kubectl get pods
+  149  vi wp-svc.yaml 
+  150  kubectl replace -f wp-svc.yaml 
+  151  kubectl delete -f wp-svc.yaml 
+  152  kubectl replace -f wp-svc.yaml 
+  153  kubectl create -f wp-svc.yaml 
+  154  ls -l
+  155  kubectl delete -f mysql-svc.yaml 
+  156  kubectl delete -f mysql.yaml 
+  157  kubectl delete -f wp.yaml 
+  158  kubectl delete -f wp-svc.yaml 
+  159  cd ..
+  160  kubectl get pods
+  161  ls -l
+  162  kubectl get pods
+  163  kubectl apply -f ./rydercup/
+  164  kubectl get pods
+  165  vi rydercup/wp.yaml 
+  166  kubectl apply -f ./rydercup/
+  167  kubectl get pods --show-labels
+  168  vi rydercup/wp.yaml 
+  169  kubectl apply -f ./rydercup/
+  170  kubectl get pods --show-labels
+  171  ls -l
+  172  kubectl edit deployment wp
+  173  kubectl edit deployment wordpress
+  174  clear
+  175  kubectl get pods
+  176  kubectl delete -f ./rydercup/
+  177  kubectl get pods
+  178  clear
+  179  kubectl get pods
+  180  which helm 
+  181  helm version
+  182  kubectl version
+  183  helm 
+  184  kubectl get pods -n kube-system
+  185  helm repo list
+  186  helm init --client-only
+  187  helm repo list
+  188  helm search redis
+  189  helm search minio
+  190  helm inspect stable/minio
+  191  helm inspect values stable/minio
+  192  helm install stable/minio
+  193  kubectl get svc
+  194  kubectl edit svc vociferous-condor-minio
+  195  kubectl get svc
+  196  clear
+  197  ls -l
+  198  cd rydercup/
+  199  ls -l
+  200  cd ..
+  201  helm
+  202  helm create oreilly
+  203  tree oreilly/
+  204  cd oreilly/
+  205  ls
+  206  ls -l
+  207  rm -rf charts/
+  208  vi Chart.yaml 
+  209  vi values.yaml 
+  210  rm values.yaml 
+  211  vi values.yaml
+  212  cd ..
+  213  ls -l
+  214  rm -rf oreilly/
+  215  ls -l
+  216  kubectl get svc
+  217  kubectl edit svc vociferous-condor-minio
+  218  ls -l
+  219  helm
+  220  helm create oreilly
+  221  tree oreilly/
+  222  cd oreilly/
+  223  ls -l
+  224  rm -rf charts/
+  225  vi Chart.yaml 
+  226  ls -l
+  227  vi values.yaml 
+  228  more values.yaml 
+  229  cd templates/
+  230  ls -l
+  231  rm *.yaml
+  232  ls -l
+  233  rm _helpers.tpl 
+  234  rm N
+  235  rm NOTES.txt 
+  236  ls -l
+  237  cp ../../rydercup/*
+  238  ls -l
+  239  cp ../../rydercup/* .
+  240  ls -l
+  241  vi wp.yaml 
+  242  cd ..
+  243  ls -l
+  244  cd ..
+  245  ls -l
+  246  helm ls
+  247  helm install ./oreilly/
+  248  helm create foo
+  249  cd foo/templates/
+  250  ls -l
+  251  more deployment.yaml 
+  252  cd ..
+  253  vi oreilly/templates/wp.yaml 
+  254  helm install ./oreilly/
+  255  ls -l
+  256  cd rydercup/
+  257  ls -l
+  258  cd ..
+  259  cd oreilly/
+  260  ls -l
+  261  cd templates/
+  262  ls -l
+  263  vi pvc.yaml
+  264  vi mysql.yaml 
+  265  more pvc.yaml 
+  266  ls -l
+  267  cd ..
+  268  helm ls
+  269  helm wobbly-cricket
+  270  helm delete wobbly-cricket
+  271  helm delete vociferous-condor
+  272  kubectl get pods
+  273  clear
+  274  kubectl get pods
+  275  clear
+  276  kubectl get pods
+  277  clear
+  278  kubectl get pods
+  279  ls -l
+  280  helm install ./oreilly/
+  281  kubectl get pods
+  282  kubectl get pvc
+  283  kubectl get pv
+  284  kubectl get svc
+  285  cat oreilly/templates/pvc.yaml 
+  286  cd ..
+  287  ls -l
+  288  wget https://github.com/kubernetes/kompose/releases/download/v1.16.0/kompose-linux-amd64
+  289  ls -l
+  290  mv kompose-linux-amd64 kompose
+  291  chmod 744 kompose 
+  292  kompose
+  293  ./kompose 
+  294  vi docker-compose.yaml
+  295  ./kompose convert 
+  296  ls -l
+  297  vi docker-compose.yaml
+  298  ./kompose convert 
+  299  ls -l
+  300  more frontend-deployment.yaml 
+  301  ./kompose up
+  302  kubectl proxy &
+  303  ps -ef|grep proxy
+  304  kill -9 24762
+  305  ps -ef|grep proxy
+  306  kubectl proxy --port 8080&
+  307  ./kompose up
+  308  kubectl get pods
+  309  kubectl get svc
+  310  kubectl get pods
+  311  ls -l
+  312  cd scripts/
+  313  ls -l
+  314  more create_pod.py 
+  315  ls -l
+  316  more create_cronjob.py 
+  317  ls -l
+  318  cd ..
+  319  ls -l
+  320  cd oreilly-kubernetes/
+  321  ls -l
+  322  rm oreilly-0.1.0.tgz 
+  323  ls -l
+  324  cd m
+  325  cd manifests/
+  326  ls -l
+  327  rm -rf rydercup/
+  328  rm -rf oreilly/
+  329  ls -l
+  330  cd 07-crd
+  331  ls -l
+  332  more database.yml 
+  333  kubectl get databases
+  334  kubectl create -f database.yml 
+  335  kubectl get databases
+  336  kubectl apiversions
+  337  kubectl api-versions
+  338  curl localhost:8080/foo.bar/v1
+  339  curl localhost:8080/apis/foo.bar/v1
+  340  more db.yml 
+  341  kubectl apply -f db.yml 
+  342  kubectl get db
+  343  kubectl get db my-new-db -o yaml
+  344  vi db.yml 
+  345  kubectl apply -f db.yml 
+  346  kubectl get databases
