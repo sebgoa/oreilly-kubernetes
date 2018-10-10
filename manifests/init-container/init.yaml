@@ -2,10 +2,13 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: init-demo2
+  labels:
+    topic: initdemo2
 spec:
   containers:
   - name: python
     image: python:2.7-alpine
+    workingDir: /tmp/init
     command:
       - python
       - "-m"
