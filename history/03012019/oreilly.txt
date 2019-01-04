@@ -1,0 +1,456 @@
+  517  kubectl get pods
+  518  kubectl logs redis-dff85b6f4-4sq4l 
+  519  kubectl exec -ti redis-dff85b6f4-4sq4l -- /bin/sh
+  520  vi pod.yaml
+  521  kubectl create -f pod.yaml 
+  522  kubectl get pods
+  523  more pod.yaml 
+  524  kubectl get pods
+  525  kubectl delete pods oreilly
+  526  kubectl delete pods redis-dff85b6f4-4sq4l
+  527  kubectl get pods
+  528  kubectl delete pods redis-dff85b6f4-w6k7c
+  529  kubectl get pods
+  530  clear
+  531  ls -l
+  532  clear
+  533  kubectl get pods
+  534  clear
+  535  kubectl get pods
+  536  more pod.yaml 
+  537  kubectl create -f pod.yaml 
+  538  kubectl get pods
+  539  kubectl get pods
+  540  kubectl delete pods oreilly
+  541  kubectl get pods
+  542  clear
+  543  vi rs.yaml
+  544  kubectl create -f rs.yaml 
+  545  vi rs.yaml
+  546  kubectl create -f rs.yaml 
+  547  more rs.yaml 
+  548  kubectl get pods
+  549  kubectl delete pods oreilly-j78mg
+  550  kubectl get pods
+  551  kubectl get pods
+  552  more rs.yaml 
+  553  more pod.yaml 
+  554  kubectl get pods
+  555  kubectl get rs
+  556  kubectl get replicaset
+  557  more rs.yaml 
+  558  kubectl get pods --show-labels
+  559  kubectl get pods -l tough=demo
+  560  git remote -v
+  561  cd manifests/
+  562  ls -l
+  563  cd 01-pod/
+  564  ls -l
+  565  more redis.yaml 
+  566  cd ..
+  567  ls -l
+  568  cd 03-rs
+  569  ls -l
+  570  more rs.yaml 
+  571  clear
+  572  ls -l
+  573  clear
+  574  kubectl get pods
+  575  kubectl get pods --v=9
+  576  clear
+  577  curl localhost:8001
+  578  curl localhost:8001/api/v1
+  579  curl localhost:8001/apis/apps/v1
+  580  kubectl get pods
+  581  kubectl delete pods oreilly-dbxfr --v=9
+  582  clear
+  583  kubectl get pods
+  584  kubectl get pods oreilly-5m87t -o yaml
+  585  kubectl get pods oreilly-5m87t -o json
+  586  kubectl get pods oreilly-5m87t -o yaml
+  587  clear
+  588  curl localhost:8001/api/v1/namespaces/default/pods/oreilly-5m87t
+  589  kubectl get pods
+  590  curl -XDELETE localhost:8001/api/v1/namespaces/default/pods/oreilly-5m87t
+  591  kubectl get pods
+  592  clear
+  593  kubectl get pods
+  594  cd ..
+  595  cd ..
+  596  ls -l
+  597  more pod.yaml 
+  598  kubectl create -f pod.yaml 
+  599  kubectl get pods
+  600  vi pod.yaml 
+  601  kubectl create -f pod.yaml 
+  602  kubectl create namespace foo
+  603  kubectl create -f pod.yaml --namespace foo
+  604  kubectl get pods
+  605  kubectl get pods --all-namespaces
+  606  curl localhost:8001/api/v1/namespaces/default/pods
+  607  curl localhost:8001/api/v1/namespaces/foo/pods
+  608  curl localhost:8001/api/v1/namespaces/foo/pods |jq -r .items[].smetadata.name
+  609  curl localhost:8001/api/v1/namespaces/foo/pods |jq -r .items[].metadata.name
+  610  curl -s localhost:8001/api/v1/namespaces/foo/pods |jq -r .items[].metadata.name
+  611  curl -s localhost:8001/api/v1/namespaces/default/pods |jq -r .items[].metadata.name
+  612  kubectl get ns
+  613  kubectl get pods
+  614  kubectl create quota oreilly --hard=pods=4
+  615  kubectl get resourcequota
+  616  kubectl get resourcequota oreilly -o yaml
+  617  vi pod.yaml 
+  618  kubectl create -f pod.yaml 
+  619  kubectl create -f pod.yaml -n foo
+  620  clear
+  621  kubectl get pods
+  622  kubectl delete pods oreilly
+  623  more pod.yaml 
+  624  kubectl create -f pod.yaml 
+  625  kubectl get pods
+  626  kubectl logs foo
+  627  kubectl get pods
+  628  vi svc.yaml
+  629  kubectl get pods --show-labels
+  630  kubectl labels pods foo video=online
+  631  kubectl label pods foo video=online
+  632  kubectl get pods --show-labels
+  633  vi svc.yaml 
+  634  more svc.yaml 
+  635  kubectl create -f svc.yaml 
+  636  kubectl get svc
+  637  kubectl get services
+  638  kubectl edit svc foo
+  639  kubectl get services
+  640  kubectl get services -w
+  641  kubectl get pods
+  642  kubectl logs foo 
+  643  clear
+  644  kubectl get pods
+  645  kubectl get svc
+  646  vi pod.yaml 
+  647  kubectl create -f pod.yaml 
+  648  kubectl get pods
+  649  kubectl delete pods food
+  650  kubectl delete pods foo
+  651  kubectl create -f pod.yaml 
+  652  kubectl get pods
+  653  kubectl logs nginxredis -c redis
+  654  kubectl logs nginxredis -c nginx
+  655  clear
+  656  kubectl get pods
+  657  kubectl get svc
+  658  kubectl get endpoints
+  659  more svc.yaml 
+  660  kubectl get pods --show-labels
+  661  kubectl label pod nginxredis video=online
+  662  kubectl get pods --show-labels
+  663  kubectl get endpoints
+  664  kubectl get pods nginxredis -o json | jq -r .status.PodIP
+  665  kubectl get pods nginxredis -o json | jq -r .status.podIP
+  666  kubectl run -it --rm busy --image=busybox:1.27 -- /bin/sh
+  667  kubectl run -it --rm busybox --image=busybox:1.27 -- /bin/sh
+  668  kubectl get pods oreilly-t9jq8 -o yaml
+  669  kubectl exec -ti oreilly-t9jq8 -- /bin/sh
+  670  clear
+  671  kubectl get svc
+  672  kubectl delete svc foo
+  673  kubectl get nodes
+  674  clear
+  675  kubectl get pods
+  676  kubectl get ns
+  677  kubectl delete ns foo
+  678  kubectl get ns
+  679  kubectl get pods
+  680  clear
+  681  kubectl get pods
+  682  kubectl delete pods nginxredis
+  683  kubectl delete rs oreilly
+  684  ls -l
+  685  kubectl get pods
+  686  kubectl run --help
+  687  kubectl run nginx --image=nginx --dry-run -o json
+  688  kubectl run nginx --image=nginx --restart=never --dry-run -o json
+  689  kubectl run nginx --image=nginx --restart=Never --dry-run -o json
+  690  kubectl create
+  691  kubectl create services --help | more
+  692  kubectl create service
+  693  kubectl create service clusterip
+  694  kubectl create service clusterip -h
+  695  clear
+  696  kubectl create service
+  697  kubectl run --rm -it busy --image=busybox:1.29 -- /bin/sh
+  698  kubectl delete deployments busy
+  699  kubectl run --rm -it busy --image=busybox:1.29 -- /bin/sh
+  700  kubectl get deployments
+  701  kubectl delete deployments busybox
+  702  clear
+  703  clear
+  704  kubectl get nodes
+  705  ls -l
+  706  more rs.yaml 
+  707  vi rs.yaml 
+  708  kubectl create -f rs.yaml 
+  709  kubectl get rs
+  710  kubectl get pods
+  711  kubectl describe pods oreilly-bds8g
+  712  kubectl describe pods oreilly-bds8g
+  713  kubectl get pods
+  714  kubectl logs oreilly-bds8g
+  715  ls -l
+  716  clear
+  717  kubectl get pods
+  718  kubectl expose --help
+  719  clear
+  720  kubectl get rs
+  721  kubectl expose rs oreilly --port 80 --target-port 2368
+  722  kubectl get svc
+  723  kubectl get svc oreilly -o yaml
+  724  kubectl get pods -l day=second
+  725  kubectl get endpoints
+  726  kubectl get pods
+  727  kubectl run --it --rm debug --image=busybox:1.29 -- /bin/sh
+  728  kubectl run -it --rm debug --image=busybox:1.29 -- /bin/sh
+  729  kubectl run -it --rm debug1 --image=busybox:1.27 -- /bin/sh
+  730  kubectl run -it --rm debug1 --image=busybox:1.27 -- /bin/sh
+  731  kubectl run -it --rm debug2 --image=busybox:1.27 -- /bin/sh
+  732  clear
+  733  kubectl get pods
+  734  kubectl get svc
+  735  kubectl edit svc oreilly
+  736  kubectl get svc -w
+  737  clear
+  738  kubectl run nginx --image=nginx
+  739  kubectl get pods
+  740  kubectl scale deployment nginx --replicas 4
+  741  kubectl get pods
+  742  kubectl get rs
+  743  kubectl describe rs nginx-65899c769f
+  744  kubectl get resourcequota
+  745  kubectl edit resourcequota oreilly
+  746  kubectl get pods
+  747  kubectl set image deployment nginx nginx=nginx:1.1111
+  748  kubectl get pods
+  749  kubectl describe pods nginx-6f575df45b-dbjhc
+  750  kubectl get pods
+  751  kubectl set image deployment nginx nginx=redis
+  752  kubectl get rs -w
+  753  kubectl get pods
+  754  kubectl get rs
+  755  kubectl rollout history deployment nginx
+  756  kubectl rollout undo deployment nginx --to-revision 1
+  757  kubectl rollout history deployment nginx
+  758  kubectl get rs
+  759  kubectl get pods
+  760  kubectl get pods --show-labels
+  761  kubectl get pods -l run=nginx
+  762  kubectl get pods -l run=nginx -o json | jq -r .items[].spec.containers[0].image
+  763  kubectl rollout history deployment nginx
+  764  kubectl rollout undo deployment nginx --to-revision 2
+  765  kubectl get pods -l run=nginx -o json | jq -r .items[].spec.containers[0].image
+  766  kubectl get pods
+  767  kubectl rollout history deployment nginx
+  768  kubectl rollout undo deployment nginx --to-revision 4
+  769  kubectl get pods
+  770  kubectl get deployments
+  771  kubectl get replicasets
+  772  kubectl get pods
+  773  kubectl expose deployments nginx --port 80 --type LoadBalancer
+  774  kubectl get svc
+  775  kubectl get svc -w
+  776  kubectl create -f https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml
+  777  kubectl get deployments
+  778  kubectl get pods
+  779  kubectl get pods
+  780  kubectl get svc
+  781  kubectl delete deployment nginx
+  782  kubectl delete svc oreilly nginx
+  783  kubectl delete deployment redis
+  784  clear
+  785  kubectl get svc
+  786  kubectl edit svc frontend
+  787  kubectl get svc -w
+  788  kubectl get pods
+  789  kubectl scale deployments redis-slave --replicas 4
+  790  kubectl get pods
+  791  kubectl get pods
+  792  kubectl exec -ti redis-master-55db5f7567-qthrj -- redis-cli info
+  793  kubectl scale deployments redis-slave --replicas 1
+  794  kubectl get pods
+  795  kubectl exec -ti redis-master-55db5f7567-qthrj -- redis-cli info
+  796  kubectl exec -ti redis-master-55db5f7567-qthrj -- redis-cli info
+  797  kubectl exec -ti redis-master-55db5f7567-qthrj -- redis-cli info
+  798  kubectl exec -ti redis-master-55db5f7567-qthrj -- redis-cli info
+  799  kubectl exec -ti redis-master-55db5f7567-qthrj -- redis-cli info
+  800  clear
+  801  kubectl run mysql --image=mysql:5.5 --env MYSQL_ROOT_PASSWORD=root
+  802  kubectl expose deployment mysql --port 3306
+  803  kubectl get pods
+  804  kubectl run wordpress --image=wordpress --env WORDPRESS_DB_HOST=mysql --env WORDPRESS_DB_PASSWORD=root
+  805  kubectl expose deployment wordpress --port 80 --type LoadBalancer
+  806  kubectl get pods
+  807  kubectl exec -ti mysql-55d65b64bb-x7ts6 -- mysql -uroot -p
+  808  clear
+  809  ls -l
+  810  kubectl run -it debuggg --image=busybox:1.27 -- /bin/sh
+  811  kubectl get pods
+  812  kubectl get svc
+  813  clear
+  814  ls -l
+  815  clear
+  816  kubectl get pods
+  817  kubectl delete rs oreilly
+  818  kubectl delete deployment debuggg
+  819  clear
+  820  kubectl get pods
+  821  ls -l
+  822  ls -l
+  823  clear
+  824  ls -l
+  825  vi index.html
+  826  cat index.html 
+  827  kubectl create configmap www --from-file=index.html 
+  828  kubectl get configmap
+  829  kubectl get cm
+  830  kubectl get cm www -o yaml
+  831  vi w.yaml
+  832  more w.yaml 
+  833  kubectl create -f w.yaml 
+  834  kubectl get pods
+  835  kubectl exec -ti www -- ls -l /usr/share/nginx/html
+  836  kubectl expose pod www --port 80 --type LoadBalancer
+  837  kubectl label pod www foo=bar
+  838  kubectl expose pod www --port 80 --type LoadBalancer
+  839  kubectl get svc -w
+  840  kubectl logs www
+  841  kubectl logs -f www
+  842  clear
+  843  ls -l
+  844  more w.yaml 
+  845  ls -l
+  846  cd manifests/
+  847  ls -l
+  848  cd 06-volumes/
+  849  ls -l
+  850  pwd
+  851  more configmap.yaml 
+  852  ls -l
+  853  more cm-vol.yaml 
+  854  ls -l
+  855  more foobar.md 
+  856  ls -l
+  857  more volumes.yaml 
+  858  kubectl create -f volumes.yaml 
+  859  kubectl get pods
+  860  kubectl exec -ti vol -c busy -- ls -l /busy
+  861  kubectl cp --help
+  862  kubectl cp volumes.yaml vol:/busy/volumes.yaml -c busy
+  863  kubectl exec -ti vol -c busy -- ls -l /busy
+  864  kubectl exec -ti vol -c box -- ls -l /busy
+  865  kubectl exec -ti vol -c box -- ls -l /box
+  866  kubectl exec -ti vol -c box -- cat /box/volumes.yaml
+  867  ls -l
+  868  kubectl get pods
+  869  kubectl delete deployments wordpress mysql
+  870  kubectl delete pods vol www
+  871  clear
+  872  kubectl get pods
+  873  ls -l
+  874  more pvc.yaml 
+  875  kubectl get persistentvolumeclaim
+  876  kubectl get persistentvolume
+  877  kubectl get pvc
+  878  kubectl get pv
+  879  kubectl create -f pvc.yaml 
+  880  kubectl get pv
+  881  kubectl get pvc
+  882  kubectl get pv pvc-bea040c8-1033-11e9-bbda-42010a8000a0 -o yaml
+  883  ls -l
+  884  more mysql.yaml 
+  885  kubectl get pvc
+  886  kubectl create -f mysql.yaml 
+  887  kubectl get pods
+  888  kubectl get pods
+  889  kubectl get pods
+  890  kubectl get pods
+  891  kubectl get pods -w
+  892  kubectl exec -ti data -- mysql -uroot -p
+  893  kubectl get pods
+  894  kubectl delete pods data
+  895  kubectl get pods
+  896  kubectl get pvc
+  897  ls -l
+  898  more mysql.yaml 
+  899  ls -l
+  900  cp hostpath.yaml test.yaml
+  901  vi test.yaml 
+  902  kubectl create -f test.yaml 
+  903  kubectl get pods
+  904  kubectl get pods
+  905  kubectl get pods
+  906  kubectl exce -ti pvctest -- ls -l /oreilly
+  907  kubectl exec -ti pvctest -- ls -l /oreilly
+  908  kubectl exec -ti pvctest -- ls -l /oreilly/oreilly
+  909  kubectl get pods
+  910  kubectl delete pods pvctest
+  911  clear
+  912  kubectl run foo --image=ghost --dry-run -o yaml
+  913  kubectl run foo --image=ghost --dry-run -o json
+  914  kubectl run foo --image=ghost --dry-run -o json > foo.json
+  915  more foo.json 
+  916  kubectl get pods
+  917  kubectl run foo --image=ghost --restart=Never --dry-run -o yaml
+  918  kubectl get pods
+  919  kubectl expose deployment frontend --port 80 --dry-run -o yaml 
+  920  kubectl create
+  921  kubectl create quote foo --hard=pod=2 --dry-run -o yaml
+  922  kubectl create quota foo --hard=pod=2 --dry-run -o yaml
+  923  clear
+  924  which helm
+  925  helm init
+  926  kubectl get pods -n kube-system
+  927  clear
+  928  helm repo list
+  929  helm search redis
+  930  helm install stable/redis
+  931  helm repo update
+  932  helm install stable/redis
+  933  helm inspect stable/redis
+  934  helm install stable/redis-ha
+  935  helm create oreilly
+  936  tree oreilly/
+  937  cd oreilly/templates/
+  938  ls -l
+  939  more deployment.yaml 
+  940  clear
+  941  cd ..
+  942  cd ..
+  943  ls -l
+  944  cd ..
+  945  ls -l
+  946  cd 07-crd/
+  947  ls -l
+  948  clear
+  949  kubectl get database
+  950  more database.yml 
+  951  kubectl create -f database.yml 
+  952  kubectl get database
+  953  kubectl proxy ?&
+  954  kubectl proxy &
+  955  ps -ef |grep proxy
+  956  curl localhost:8001/apis/
+  957  curl localhost:8001/
+  958  curl localhost:8001/apis/foo.bar/v1
+  959  ls -l
+  960  more db.yml 
+  961  kubectl create -f db.yml 
+  962  kubectl get db
+  963  kubectl get db my-new-db -o yaml
+  964  kubectl edit db my-new-db
+  965  kubectl get db
+  966  clear
+  967  ipython
+  968  cd ..
+  969  ls -l
+  970  cd 05-ingress-controller/
+  971  ls -l
+  972  more frontend.yaml 
