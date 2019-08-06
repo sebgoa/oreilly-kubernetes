@@ -4,6 +4,14 @@ This demonstrates using 2 deployments to test new code alongside operational cod
 
 The static files are placed in sub-directories such that configMap can give them the correct filenames by default. Mounting these is demonstrated in `configmap.sh`.
 
+```
+./configmap.sh
+kubectl create -f blue-deploy.yaml
+kubectl create -f red-deploy.yaml
+kubectl create -f redblue-svc.yaml
+kubectl create -f redblue-ingress.yaml
+```
+
 Running this demo includes the following steps:
 * Create the configMaps.
 * Create the redblue service.
