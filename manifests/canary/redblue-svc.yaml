@@ -5,7 +5,6 @@ metadata:
 spec:
   selector:
     run: test
-  type: NodePort
   ports:
   - port: 80
     protocol: TCP
