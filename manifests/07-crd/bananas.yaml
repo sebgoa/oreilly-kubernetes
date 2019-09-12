@@ -1,7 +1,0 @@
-apiVersion: extensions/v1beta1
-kind: ThirdPartyResource
-metadata:
-  name: kube-con.example.com
-description: "A kubecon resource"
-versions:
-- name: v1

@@ -1,6 +1,0 @@
-apiVersion: fruit.com/v1
-kind: MangoFruit
-metadata:
-  name: tomato
-  labels:
-    kubernetes: rocks

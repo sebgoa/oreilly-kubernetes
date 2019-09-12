@@ -1,6 +1,0 @@
-apiVersion: loom.com/v2 
-kind: Fruit
-metadata:
-  name: orange 
-spec:
-  type: blue

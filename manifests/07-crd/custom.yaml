@@ -1,7 +1,0 @@
-apiVersion: extensions/v1beta1
-kind: ThirdPartyResource
-metadata:
-  name: custom-resource.example.com
-description: "A custom resource"
-versions:
-  - name: v1
