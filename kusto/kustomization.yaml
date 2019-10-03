@@ -1,7 +1,0 @@
-commonLabels:
-  swiss: com
-ImageTags:
-  - name: nginx
-    newTag: v2
-resources:
-  - pod.yaml
