@@ -1,0 +1,9 @@
+apiVersion: oreilly.com/v1alpha1
+kind: Book
+metadata:
+  name: Moby
+  labels:
+    safari: book
+spec:
+  title: mobydick  
+  abstract: a whale and a captain

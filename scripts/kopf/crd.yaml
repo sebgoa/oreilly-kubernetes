@@ -1,0 +1,33 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: books.oreilly.com
+spec:
+  scope: Namespaced
+  group: oreilly.com
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+  names:
+    kind: Book
+    plural: books
+    singular: book
+    shortNames:
+      - bk
+  additionalPrinterColumns:
+    - name: Title
+      type: string
+      priority: 0
+      JSONPath: .spec.title
+      description: Title of the Book
+    - name: Abstract
+      type: string
+      priority: 0
+      JSONPath: .spec.abstract
+      description: Abstract of the Book
+    - name: Message
+      type: string
+      priority: 0
+      JSONPath: .status.message
+      description: As returned from the handler (sometimes).
