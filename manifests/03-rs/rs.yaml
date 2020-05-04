@@ -1,18 +1,18 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: foobar
+  name: lodh
 spec:
-  replicas: 4
+  replicas: 5
   selector:
     matchLabels:
-      baz: bar
+      bank: lodh
   template:
     metadata:
-      name: test
+      name: pod
       labels:
-        baz: bar
+        bank: lodh
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: one
+        image: redis
