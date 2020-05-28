@@ -54,7 +54,7 @@ spec:
           serviceName: wordpress
           servicePort: 80
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
@@ -75,7 +75,7 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: root
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
