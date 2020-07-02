@@ -61,8 +61,12 @@ metadata:
   namespace: wordpress
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
   template:
     metadata:
+      name: mysql
       labels:
         app: mysql
     spec:
@@ -82,8 +86,12 @@ metadata:
   namespace: wordpress
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
   template:
     metadata:
+      name: wordpress
       labels:
         app: wordpress
     spec:
@@ -95,3 +103,5 @@ spec:
         env:
         - name: WORDPRESS_DB_PASSWORD
           value: root
+        - name: WORDPRESS_DB_HOST
+          value: mysql
