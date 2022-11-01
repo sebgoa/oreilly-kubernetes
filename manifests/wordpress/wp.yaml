@@ -47,7 +47,7 @@ metadata:
   namespace: wordpress
 spec:
   rules:
-    - host: wordpress.local.io
+    - host: wordpress.192.168.99.100.nip.io
       http:
         paths:
           - path: /
