@@ -40,19 +40,23 @@ spec:
   selector:
     app: wordpress
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wordpress
   namespace: wordpress
 spec:
   rules:
-  - host: wordpress.192.168.99.100.nip.io
-    http:
-      paths:
-      - backend:
-          serviceName: wordpress
-          servicePort: 80
+    - host: wordpress.192.168.99.100.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wordpress
+                port:
+                  number: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -78,6 +82,8 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: root
+        - name: MYSQL_DATABASE
+          value: wordpress
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -101,7 +107,11 @@ spec:
         ports:
         - containerPort: 80
         env:
+        - name: WORDPRESS_DB_USER
+          value: root
         - name: WORDPRESS_DB_PASSWORD
           value: root
         - name: WORDPRESS_DB_HOST
           value: mysql
+        - name: WORDPRESS_DB_NAME
+          value: wordpress
